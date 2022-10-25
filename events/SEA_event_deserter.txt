@@ -1,0 +1,188 @@
+namespace = sea_deserter
+
+@tier1unityreward = 6
+@tier1unitymin = 100
+@tier1unitymax = 100000
+
+# 回归的恐鱼事件
+country_event = {
+	id = sea_deserter.1
+	title = sea_deserter.1.name
+	desc = sea_deserter.1.desc
+	is_triggered_only = yes
+	picture = GFX_evt_sea_deserter
+
+	# 判断是否触发
+	trigger = {
+		has_authority = auth_sea
+	}
+
+	option = { # 我们应该接纳它们
+		name = sea_deserter.1.a
+		hidden_effect = {
+			random_list = {
+				30 = { country_event = { id = sea_deserter.2 } } # 科研点数
+				10 = { country_event = { id = sea_deserter.3 } } # 加人口
+				20 = { country_event = { id = sea_deserter.4 } } # 加凝聚力
+				40 = {} #nothing
+				20 = { country_event = { id = sea_deserter.5 } } # 减凝聚力
+				10 = { country_event = { id = sea_deserter.6 } } # 减人口
+
+			}
+		}
+	}
+	option = { # 我们应该同化它们
+		name = sea_deserter.1.b
+		hidden_effect = {
+			country_event = { id = sea_deserter.7 }  # 加食物与生物点数
+		}
+
+	}
+}
+
+# 加科研点
+# 回归的个体带来了更多的科研思路
+country_event = {
+	id = sea_deserter.2
+	title = sea_deserter.1.name
+	desc = sea_deserter.2.desc
+	is_triggered_only = yes
+	picture = GFX_evt_sea_deserter
+	trigger = {}
+	option = {
+		name = sea_deserter.2.a
+		random_list = {
+			34 = {
+				owner = {
+					add_monthly_resource_mult = {
+						resource = physics_research
+						value = @tier1materialreward
+						min = @tier1materialmin
+						max = @tier1materialmax
+						}
+				}
+			}
+			33 = {
+				owner = {
+					add_monthly_resource_mult = {
+						resource = society_research
+						value = @tier1materialreward
+						min = @tier1materialmin
+						max = @tier1materialmax
+						}
+				}
+			}
+			33 = {
+				owner = {
+					add_monthly_resource_mult = {
+						resource = engineering_research
+						value = @tier1materialreward
+						min = @tier1materialmin
+						max = @tier1materialmax
+						}
+				}
+			}
+		}
+	}
+}
+
+# 人口增长
+country_event = {
+	id = sea_deserter.3
+	title = sea_deserter.1.name
+	desc = sea_deserter.3.desc	
+	is_triggered_only = yes
+	picture = GFX_evt_sea_deserter
+	trigger = {}
+	option = {
+		name = sea_deserter.2.a
+		owner = {
+			home_planet = {
+				create_pop = {
+					species = owner_main_species
+				}
+			}
+		}
+	}
+}
+
+# 加凝聚力
+country_event = {
+	id = sea_deserter.4
+	title = sea_deserter.1.name
+	desc = sea_deserter.4.desc	
+	is_triggered_only = yes
+	picture = GFX_evt_sea_deserter
+	trigger = {}
+	option = {
+		name = sea_deserter.2.a
+		owner = {
+			add_monthly_resource_mult = {
+				resource = unity
+				value = @tier1unityreward
+				min = @tier1unitymin
+				max = @tier1unitymax
+			}
+		}
+	}
+}
+
+# 减凝聚力
+country_event = {
+	id = sea_deserter.5
+	title = sea_deserter.1.name
+	desc = sea_deserter.5.desc	
+	is_triggered_only = yes
+	picture = GFX_evt_sea_deserter
+	trigger = {}
+	option = {
+		name = sea_deserter.2.b
+		owner = {
+			add_monthly_resource_mult = {
+				resource = unity
+				value = -6
+				min = -100
+				max = -10000
+			}
+		}
+	}
+}
+
+# 减人口增长
+country_event = {
+	id = sea_deserter.6
+	title = sea_deserter.1.name
+	desc = sea_deserter.6.desc	
+	is_triggered_only = yes
+	picture = GFX_evt_sea_deserter
+	trigger = {}
+	option = {
+		name = sea_deserter.2.b
+		owner = {
+			random_owned_pop = {
+				kill_pop = yes
+			}
+		}
+	}
+}
+
+# 变成食物
+country_event = {
+	id = sea_deserter.7
+	title = sea_deserter.1.name
+	desc = sea_deserter.7.desc	
+	is_triggered_only = yes
+	picture = GFX_evt_sea_deserter
+	trigger = {}
+	option = {
+		name = sea_deserter.2.a
+		owner = {
+			add_monthly_resource_mult = {
+				resource = food
+				value = 1000
+				min = 500
+				max = 2000
+			}
+		}
+	}
+}

@@ -1,0 +1,24 @@
+# 物种（类，用于选择）
+sea_C = {
+	archetype = BIOLOGICAL
+
+	playable = { has_lithoids = yes }
+	# possible = { authority = { value = auth_sea } } # 只能用这个政体
+
+	# randomized = { has_lithoids = yes }
+	gender = no # 无性别
+	custom_portraits = {
+		# randomized = { has_lithoids = yes }
+		# playable = { has_lithoids = yes }
+		portraits = {
+			"sea_0"
+		}
+	}
+
+	graphical_culture = lithoid_01  # 城市显示的图像文化，可承接基础Scope(Country)，可承接Target
+	# move_pop_sound_effect = "reptilian_pops_move"
+
+	resources = {}
+
+	trait = trait_sea
+}

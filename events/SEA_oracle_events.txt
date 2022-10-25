@@ -1,0 +1,238 @@
+namespace = sea_oracle
+
+country_event = {
+	id = sea_oracle.1
+	title = sea_oracle.1.name
+	desc = sea_oracle.1.desc
+	is_triggered_only = yes
+	picture = GFX_evt_sea_oracle
+
+	# 判断是否触发
+	trigger = {
+		has_authority = auth_sea
+	}
+
+	option = { # 干涉
+		name = sea_oracle.1.a
+		random_list = {
+			70 = { country_event = { id = sea_oracle.2 } } # 成功
+			20 = { country_event = { id = sea_oracle.3 } } # 失败但没被发现
+			10 = { country_event = { id = sea_oracle.4 } } # 失败
+		}
+	}
+	option = { # 不管
+		name = sea_oracle.1.b
+		random_list = {
+			24 = { country_event = { id = sea_oracle.5 } } # 蔓延的枝条
+			24 = { country_event = { id = sea_oracle.6 } } # 腐化之心·伊莎玛拉
+			24 = { country_event = { id = sea_oracle.7 } } # 始源的命脉
+			24 = { country_event = { id = sea_oracle.8 } } # 深蓝之心（其实应该是负责繁殖的神，但没漏名字
+			4 = { country_event = { id = sea_oracle.10 } } # 散乱的意识
+		}
+	}
+}
+
+country_event = {
+	id = sea_oracle.2
+	title = sea_oracle.1.name
+	desc = sea_oracle.2.desc
+	is_triggered_only = yes
+	picture = GFX_evt_sea_oracle
+	option = { # 蔓延的枝条
+		name = sea_oracle.2.a
+		country_event = { id = sea_oracle.5 }
+	}
+	option = { # 腐化之心·伊莎玛拉
+		name = sea_oracle.2.b
+		country_event = { id = sea_oracle.6 }
+	}
+	option = { # 始源的命脉
+		name = sea_oracle.2.c
+		country_event = { id = sea_oracle.7 }
+	}
+	option = { # 深蓝之心（其实应该是负责繁殖的神，但没漏名字
+		name = sea_oracle.2.d
+		country_event = { id = sea_oracle.8 }
+	}
+}
+country_event = {
+	id = sea_oracle.3
+	title = sea_oracle.1.name
+	desc = sea_oracle.3.desc
+	is_triggered_only = yes
+	picture = GFX_evt_sea_oracle
+
+	option = { 
+		name = sea_oracle.3.a
+		random_list = {
+			20 = { country_event = { id = sea_oracle.5 } } # 蔓延的枝条
+			20 = { country_event = { id = sea_oracle.6 } } # 腐化之心·伊莎玛拉
+			20 = { country_event = { id = sea_oracle.7 } } # 始源的命脉
+			20 = { country_event = { id = sea_oracle.8 } } # 深蓝之心（其实应该是负责繁殖的神，但没漏名字
+			20 = { country_event = { id = sea_oracle.10 } } # 散乱的意识
+		}
+	}
+}
+country_event = {
+	id = sea_oracle.4
+	title = sea_oracle.1.name
+	desc = sea_oracle.4.desc
+	is_triggered_only = yes
+	picture = GFX_evt_sea_oracle_false
+	option = {
+		name = sea_oracle.4.a
+		random_list = {
+			22 = { country_event = { id = sea_oracle.5 } } # 蔓延的枝条
+			22 = { country_event = { id = sea_oracle.6 } } # 腐化之心·伊莎玛拉
+			22 = { country_event = { id = sea_oracle.7 } } # 始源的命脉
+			22 = { country_event = { id = sea_oracle.8 } } # 深蓝之心（其实应该是负责繁殖的神，但没漏名字
+			12 = { country_event = { id = sea_oracle.10 } } # 散乱的意识
+		}
+		add_modifier = {
+			modifier = sea_suspicious_oracle
+			years = 1
+		}
+	}
+}
+country_event = {
+	id = sea_oracle.5
+	title = sea_oracle.5.name
+	desc = sea_oracle.5.desc
+	is_triggered_only = yes
+	picture = GFX_evt_sea_oracle
+
+	option = {
+		name = sea_oracle.5.a
+		random_owned_leader = {
+			limit = {
+				leader_class = ruler
+				}
+			hidden_effect = {
+				
+				set_name = spreading_branches
+				set_skill = 10
+				set_age = 0
+			}
+		}
+		add_modifier = {
+			modifier = spreading_branches
+			years = 5
+		}
+	}
+}
+country_event = {
+	id = sea_oracle.6
+	title = sea_oracle.6.name
+	desc = sea_oracle.6.desc
+	is_triggered_only = yes
+	picture = GFX_evt_sea_oracle
+
+	option = {
+		name = sea_oracle.5.a
+		random_owned_leader = {
+			limit = {
+				leader_class = ruler
+				}
+			hidden_effect = {
+				
+				set_name = corruption_heart
+				set_skill = 10
+				set_age = 0
+			}
+		}
+		add_modifier = {
+			modifier = corruption_heart
+			years = 5
+		}
+	}
+}
+country_event = {
+	id = sea_oracle.7
+	title = sea_oracle.7.name
+	desc = sea_oracle.7.desc
+	is_triggered_only = yes
+	picture = GFX_evt_sea_oracle
+
+	option = {
+		name = sea_oracle.5.a
+		random_owned_leader = {
+			limit = {
+				leader_class = ruler
+				}
+			hidden_effect = {
+				set_name = original_lifeblood
+				set_skill = 10
+				set_age = 0
+			}
+		}
+		add_modifier = {
+			modifier = original_lifeblood
+			years = 5
+		}
+	}
+}
+country_event = {
+	id = sea_oracle.8
+	title = sea_oracle.8.name
+	desc = sea_oracle.8.desc
+	is_triggered_only = yes
+	picture = GFX_evt_sea_oracle
+
+	option = {
+		name = sea_oracle.5.a
+		random_owned_leader = {
+			limit = {
+				leader_class = ruler
+				}
+			hidden_effect = {
+				
+				set_name = blue_heart
+				set_skill = 10
+				set_age = 0
+			}
+		}
+		add_modifier = {
+			modifier = blue_heart
+			years = 5
+		}
+	}
+}
+
+country_event = {
+	id = sea_oracle.9
+	title = sea_oracle.1.name
+	desc = sea_oracle.9.desc
+	is_triggered_only = yes
+	picture = GFX_evt_sea_oracle
+
+	# 判断是否触发
+	trigger = {
+		has_authority = auth_sea
+	}
+	option = { # 不管
+		name = sea_oracle.1.b
+		random_list = {
+			24 = { country_event = { id = sea_oracle.5 } } # 蔓延的枝条
+			24 = { country_event = { id = sea_oracle.6 } } # 腐化之心·伊莎玛拉
+			24 = { country_event = { id = sea_oracle.7 } } # 始源的命脉
+			24 = { country_event = { id = sea_oracle.8 } } # 深蓝之心（其实应该是负责繁殖的神，但没漏名字
+			4 = { country_event = { id = sea_oracle.10 } } # 散乱的意识
+		}
+	}
+}
+
+country_event = {
+	id = sea_oracle.10
+	title = sea_oracle.10.name
+	desc = sea_oracle.10.desc
+	is_triggered_only = yes
+	picture = GFX_evt_sea_oracle_false
+
+	option = {
+		name = sea_oracle.5.b
+		add_modifier = {
+			modifier = scattered_consciousness
+			years = 5
+		}
+	}
+}

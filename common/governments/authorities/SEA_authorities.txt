@@ -1,0 +1,47 @@
+# 政体
+auth_sea = {
+	icon = "gfx/interface/icons/governments/origins/civic_sea.png"
+	has_heir = no  # 继承人
+	election_type = none  # 选举类型
+	has_factions = no  # 派系
+	can_reform = no  # 改革，例如改变公民性或者政体等
+	localization_postfix = hive_mind  # 用于本地化的前缀
+
+	valid_for_released_vassal = yes  # 能否放出这样政体的附庸
+
+	playable = { host_has_dlc = "Utopia" }
+	possible = {
+		ethics = {
+			value = ethic_gestalt_consciousness  # 格式塔
+		}
+		# speice = {
+		# 	value = sea_C
+		# }
+	}
+	random_weight = {
+		modifier = {
+			factor = 0
+			NOT = { host_has_dlc = "Utopia" }
+		}
+		modifier = {
+			factor = 2
+			host_has_dlc = "Utopia"
+		}
+	}
+
+	traits = {
+		trait = trait_sea  # 绑定特质
+	}
+	
+
+	country_modifier = {
+		pop_growth_speed = 0.25
+		empire_size_penalty_mult = -0.25
+	}
+
+	tags = {
+		AUTH_sea_CLEAN
+		# AUTH_HIVE_MIND_GENEMODDING
+		AUTH_HIVE_MIND_ASCENSION_RESTRICTIONS
+	}
+}

@@ -1,0 +1,14 @@
+
+gov_sea = {
+	ruler_title = RT_SEA
+
+	should_force_rename = yes
+
+	possible = {
+		has_authority = auth_sea
+	}
+
+	weight = {
+		base = 100000
+	}
+}

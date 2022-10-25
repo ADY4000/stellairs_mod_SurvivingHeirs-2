@@ -1,0 +1,44 @@
+# 虚空居者带的神秘复制器
+d_arcane_replicator = {
+	is_for_colonizable = yes
+	icon = "d_station_reactor"
+	category = deposit_cat_rare
+
+	potential = { always = no }
+
+	resources = {
+		category = planet_deposits
+		produces = {
+			alloys = 12
+			consumer_goods = 4
+		}
+		produces = {
+			trigger = {
+				owner = {
+					any_owned_pop = {
+						has_trait = trait_exotic_metabolism
+					}
+				}
+			}
+			exotic_gases = 4
+		}
+	}
+}
+# 替换的复制器
+# 海嗣母体
+# 我们在逃亡太空之前积累的资源能够逐步被重新利用起来
+sea_matrix = {
+	is_for_colonizable = yes
+	icon = "d_station_reactor"
+	category = deposit_cat_rare
+
+	potential = { always = no }
+
+	resources = {
+		category = planet_deposits
+		produces = {
+			food = 20
+			energy = 10
+		}
+	}
+}

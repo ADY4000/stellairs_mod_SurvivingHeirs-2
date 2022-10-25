@@ -1,0 +1,23 @@
+# 推进器
+@sea_other_thruster_power_1 = -10
+@sea_other_thruster_power_2 = -15
+@sea_other_thruster_power_3 = -20
+@sea_other_thruster_power_4 = -25
+@sea_other_thruster_power_5 = -30
+
+@sea_corvette_thruster_power_1 = -1
+
+# 护卫用推进器1
+utility_component_template = {
+	key = "sea_CORVETTE_SHIP_THRUSTER_1"
+	size = small
+	icon = "GFX_ship_part_thruster_1"
+	icon_frame = 1
+	power = @sea_corvette_thruster_power_1
+	resources = { category = ship_components }
+	prerequisites = { "tech_thrusters_1" }
+	component_set = "sea_thruster_components"
+	class_restriction = { shipclass_military }
+	size_restriction = { sea_corvette }
+	ai_weight = { weight = 1 }
+}

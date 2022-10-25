@@ -1,0 +1,2523 @@
+# 覆写部分建筑，基本是蜂巢
+#############
+# Capital buildings
+#############
+@buildings_t1 = 1
+@buildings_t2 = 2
+@buildings_t3 = 3
+@buildings_t4 = 4
+
+# 初生据点
+# 由负责殖民的海嗣个体演化成，作为利用星球的临时据点与意志传达中心。
+# 提供：住房：+3
+# 舒适度：+7
+# 建筑槽位：+1
+# 行星修正：人口增长+20%（人数<10）
+
+# 神经中枢
+# 较为完备的链接中心，能够承担大型群体的意志传达工作
+building_sea_newcenter = {
+	capital = yes
+	can_build = no
+	can_demolish = no
+	can_be_ruined = no
+	can_be_disabled = no
+	position_priority = 0
+	icon = building_capital
+
+	category = government
+
+	potential = {
+		exists = owner
+		owner = {
+			has_authority = auth_sea
+			is_fallen_empire = no
+		}
+	}
+
+	destroy_trigger = { # destroys and/or triggers conversion if true
+		exists = owner
+		owner = {
+			NOT = { has_authority = auth_sea }
+		}
+	}
+
+	convert_to = {
+		building_hive_capital
+		building_machine_capital
+		building_capital
+		building_ancient_control_center
+		building_ancient_palace
+	}
+
+	upgrades = {
+		"building_sea_nervouscenter"
+	}
+
+	prerequisites = {
+		"tech_planetary_government"
+	}
+
+	show_tech_unlock_if = {
+		has_authority = auth_sea
+	}
+
+	planet_modifier = {
+		planet_housing_add = 5
+		planet_amenities_add = 8
+		job_sea_relay_add = 2
+		job_sea_cleaners_add = 2
+		job_sea_judge_add = 1
+		planet_max_buildings_add = @buildings_t2
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				has_active_tradition = tr_domination_imperious_architecture
+			}
+		}
+		modifier = {
+			planet_housing_add = 1
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { has_technology = tech_capital_productivity_1 }
+		}
+		modifier = {
+			planet_jobs_productive_upkeep_mult = 0.1
+			planet_jobs_productive_produces_mult = 0.1
+		}
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 1000
+		}
+		upkeep = {
+			energy = 2
+		}
+	}
+	# 这些描述会出现在建筑界面，与职业无关
+	# 如果有多个，只会保留一个，不知道为什么保留的是第二个
+	# 海嗣
+	# 安妮塔
+	triggered_desc = {
+		text = job_sea_relay_effect_desc
+	}
+	# 清理者
+	triggered_desc = {
+		text = job_sea_cleaners_effect_desc
+	}
+	# 审判官
+	triggered_desc = {
+		text = job_sea_judge_effect_desc
+	}
+}
+
+building_sea_nervouscenter = {
+	base_buildtime = @b2_time
+	capital = yes
+	can_build = no
+	can_demolish = no
+	can_be_ruined = no
+	can_be_disabled = no
+	position_priority = 0
+	icon = building_major_capital
+
+	category = government
+
+	potential = {
+		exists = owner
+		owner = {
+			has_authority = auth_sea
+			is_fallen_empire = no
+		}
+	}
+
+	convert_to = {
+		building_hive_major_capital
+		building_machine_major_capital
+		building_major_capital
+		building_ancient_control_center
+		building_ancient_palace
+	}
+
+	# upgrades = {
+	# 	"building_imperial_hive_capital"
+	# }
+
+	allow = {
+		num_pops >= 25
+	}
+
+	prerequisites = {
+		"tech_colonial_centralization"
+	}
+
+	show_tech_unlock_if = {
+		has_authority = auth_sea
+	}
+
+	planet_modifier = {
+		planet_housing_add = 10
+		planet_amenities_add = 12
+		job_sea_relay_add = 3
+		job_sea_cleaners_add = 5
+		job_sea_judge_add = 2
+		planet_max_buildings_add = @buildings_t4
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				has_active_tradition = tr_domination_imperious_architecture
+			}
+		}
+		modifier = {
+			planet_housing_add = 1
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { has_technology = tech_capital_productivity_1 }
+		}
+		modifier = {
+			planet_jobs_productive_upkeep_mult = 0.1
+			planet_jobs_productive_produces_mult = 0.1
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { has_technology = tech_capital_productivity_2 }
+		}
+		modifier = {
+			planet_jobs_productive_upkeep_mult = 0.1
+			planet_jobs_productive_produces_mult = 0.1
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { has_technology = tech_capital_productivity_3 }
+		}
+		modifier = {
+			planet_jobs_productive_upkeep_mult = 0.1
+			planet_jobs_productive_produces_mult = 0.1
+		}
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = @b2_minerals
+		}
+		upkeep = {
+			energy = @b2_upkeep
+		}
+	}
+	# 海嗣
+	# 初生遗嗣
+	triggered_desc = {
+		text = job_sea_heirs_effect_desc
+	}
+	# 清理者
+	triggered_desc = {
+		text = job_sea_cleaners_effect_desc
+	}
+	# 审判官
+	triggered_desc = {
+		text = job_sea_judge_effect_desc
+	}
+}
+
+#############
+# Habitat buildings
+#############
+
+# Habitat Administration
+building_hab_capital = {
+	capital = yes
+	can_build = no
+	can_demolish = no
+	can_be_ruined = no
+	can_be_disabled = no
+	position_priority = 0
+
+	icon = building_capital
+
+	category = government
+
+	potential = {
+		uses_habitat_capitals = yes
+		exists = owner
+		owner = { is_fallen_empire = no }
+	}
+
+	convert_to = {
+		building_hab_fe_capital
+	}
+
+	resources = {
+		category = planet_buildings_hab_capital
+		upkeep = {
+			trigger = { owner = { NOT = { has_origin = origin_sea } } }
+			energy = 3
+			alloys = 5
+		}
+		upkeep = {
+			trigger = { owner = { has_active_tradition = tr_domination_adopt_void } }
+			alloys = -1
+		}
+		upkeep = {
+			trigger = { owner = { has_origin = origin_sea } }
+			food = 4
+		}
+	}
+
+	planet_modifier = {
+		planet_housing_add = 3
+		planet_amenities_add = 3
+		planet_max_buildings_add = @buildings_t1
+	}
+
+	# 海嗣
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { has_authority = auth_sea }
+		}
+		job_sea_relay_add = 2
+		planet_amenities_add = 3
+	}
+
+	triggered_planet_modifier = {
+		modifier = { planet_stability_add = 1 }
+		mult = modifier:habitat_stability_add
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				has_active_tradition = tr_domination_imperious_architecture
+			}
+		}
+		modifier = {
+			planet_housing_add = 1
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { has_active_tradition = tr_prosperity_void_works }
+		}
+		modifier = {
+			planet_max_buildings_add = 1
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_mechanical_empire = yes }
+		}
+		job_roboticist_add = 1
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				NOR = {
+					has_authority = auth_corporate
+					has_origin = origin_void_dwellers
+				}
+				is_regular_empire = yes
+			}
+		}
+		job_politician_add = 1
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				has_authority = auth_corporate
+				NOT = { has_origin = origin_void_dwellers }
+			}
+		}
+		modifier = {
+			job_executive_add = 1
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				has_origin = origin_void_dwellers
+				is_regular_empire = yes
+			}
+		}
+		modifier = {
+			job_colonist_add = 2
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { has_ascension_perk = ap_voidborn }
+		}
+		modifier = {
+			planet_max_buildings_add = 2
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_hive_empire = yes }
+		}
+		job_synapse_drone_add = 2
+		planet_amenities_add = 3
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_machine_empire = yes }
+		}
+		job_coordinator_add = 1
+		job_replicator_add = 1
+		job_maintenance_drone_add = 2
+		planet_amenities_add = 3
+	}
+	# 海嗣
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { has_authority = auth_sea }
+		}
+		text = job_sea_relay_effect_desc
+	}
+
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				has_origin = origin_void_dwellers
+				is_regular_empire = yes
+			}
+		}
+		text = job_colonist_effect_desc
+	}
+
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				NOR = {
+					has_authority = auth_corporate
+					has_origin = origin_void_dwellers
+				}
+				is_regular_empire = yes
+			}
+		}
+		text = job_politician_effect_desc
+	}
+
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { is_mechanical_empire = yes }
+		}
+		text = job_roboticist_effect_desc
+	}
+
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				has_authority = auth_corporate
+				NOT = { has_origin = origin_void_dwellers }
+			}
+		}
+		text = job_executive_effect_desc
+	}
+
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { is_machine_empire = yes }
+		}
+		text = job_coordinator_effect_desc
+	}
+
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { is_machine_empire = yes }
+		}
+		text = job_replicator_effect_desc
+	}
+
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { is_machine_empire = yes }
+		}
+		text = job_maintenance_drone_effect_desc
+	}
+
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { is_hive_empire = yes }
+		}
+		text = job_synapse_drone_effect_desc
+	}
+
+	upgrades = {
+		"building_hab_major_capital"
+	}
+}
+
+# Habitat Central Complex
+building_hab_major_capital = {
+	base_buildtime = @b2_time
+	capital = yes
+	can_build = no
+	can_demolish = no
+	can_be_ruined = no
+	can_be_disabled = no
+	position_priority = 0
+
+	icon = building_major_capital
+
+	category = government
+
+	potential = {
+		uses_habitat_capitals = yes
+		exists = owner
+		owner = { is_fallen_empire = no }
+	}
+
+	convert_to = {
+		building_hab_fe_capital
+	}
+
+	allow = {
+		num_pops >= 10
+	}
+
+	resources = {
+		category = planet_buildings_hab_capital
+		cost = {
+			minerals = @b2_minerals
+		}
+		upkeep = {
+			trigger = { owner = { NOT = { has_origin = origin_sea } } }
+			energy = 3
+			alloys = 5
+		}
+		upkeep = {
+			trigger = { owner = { has_active_tradition = tr_domination_adopt_void } }
+			alloys = -1
+		}
+		upkeep = {
+			trigger = { owner = { has_authority = auth_sea } }
+			food = 4
+		}
+	}
+
+	planet_modifier = {
+		planet_housing_add = 5
+		planet_amenities_add = 5
+		planet_max_buildings_add = @buildings_t2
+		planet_max_branch_office_buildings_add = 1
+	}
+
+	triggered_planet_modifier = {
+		modifier = { planet_stability_add = 1 }
+		mult = modifier:habitat_stability_add
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				has_active_tradition = tr_domination_imperious_architecture
+			}
+		}
+		modifier = {
+			planet_housing_add = 1
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { has_active_tradition = tr_prosperity_void_works }
+		}
+		modifier = {
+			planet_max_buildings_add = 1
+		}
+	}
+	# 海嗣
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { has_authority = auth_sea }
+		}
+		job_sea_relay_add = 3
+		planet_amenities_add = 3
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_machine_empire = yes }
+		}
+		job_coordinator_add = 2
+		job_replicator_add = 1
+		job_maintenance_drone_add = 3
+		planet_amenities_add = 3
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_mechanical_empire = yes }
+		}
+		job_roboticist_add = 2
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_regular_empire = yes
+				NOR = {
+					has_authority = auth_corporate
+					has_civic = civic_exalted_priesthood
+					has_civic = civic_aristocratic_elite
+					has_civic = civic_merchant_guilds
+					has_civic = civic_technocracy
+				}
+			}
+			OR = {
+				NOT = { has_planet_flag = toxic_knights_habitat }
+				NOT = { owner = { has_origin = origin_toxic_knights } }
+			}
+		}
+		modifier = {
+			job_politician_add = 2
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			has_planet_flag = toxic_knights_habitat
+			exists = owner
+			owner = {
+				has_origin = origin_toxic_knights
+			}
+		}
+		modifier = {
+			job_knight_commander_add = 1
+			job_knight_add = 1
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			NOT = { has_planet_flag = toxic_knights_habitat }
+			exists = owner
+			owner = { has_authority = auth_corporate }
+		}
+		modifier = {
+			job_executive_add = 2
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { has_civic = civic_exalted_priesthood }
+			OR = {
+				NOT = { has_planet_flag = toxic_knights_habitat }
+				NOT = { owner = { has_origin = origin_toxic_knights } }
+			}
+		}
+		modifier = {
+			job_politician_add = 1
+			job_high_priest_add = 1
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { has_civic = civic_aristocratic_elite }
+			OR = {
+				NOT = { has_planet_flag = toxic_knights_habitat }
+				NOT = { owner = { has_origin = origin_toxic_knights } }
+			}
+		}
+		modifier = {
+			job_politician_add = 1
+			job_noble_add = 1
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { has_civic = civic_technocracy }
+			OR = {
+				NOT = { has_planet_flag = toxic_knights_habitat }
+				NOT = { owner = { has_origin = origin_toxic_knights } }
+			}
+		}
+		modifier = {
+			job_head_researcher_add = 1
+			job_politician_add = 1
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { has_civic = civic_merchant_guilds }
+			OR = {
+				NOT = { has_planet_flag = toxic_knights_habitat }
+				NOT = { owner = { has_origin = origin_toxic_knights } }
+			}
+		}
+		modifier = {
+			job_politician_add = 1
+			job_merchant_add = 1
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_regular_empire = yes }
+		}
+		job_enforcer_add = 1
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { has_ascension_perk = ap_voidborn }
+		}
+		modifier = {
+			planet_max_buildings_add = 2
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { has_technology = tech_capital_productivity_1 }
+		}
+		modifier = {
+			planet_jobs_productive_upkeep_mult = 0.1
+			planet_jobs_productive_produces_mult = 0.1
+		}
+	}
+
+	# 海嗣
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { has_authority = auth_sea }
+		}
+		text = job_sea_relay_effect_desc
+	}
+
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				has_civic = civic_exalted_priesthood
+			}
+			OR = {
+				NOT = { has_planet_flag = toxic_knights_habitat }
+				NOT = { owner = { has_origin = origin_toxic_knights } }
+			}
+		}
+		text = job_high_priest_effect_desc
+	}
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				has_civic = civic_aristocratic_elite
+			}
+			OR = {
+				NOT = { has_planet_flag = toxic_knights_habitat }
+				NOT = { owner = { has_origin = origin_toxic_knights } }
+			}
+		}
+		text = job_noble_effect_desc
+	}
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				has_civic = civic_merchant_guilds
+			}
+			OR = {
+				NOT = { has_planet_flag = toxic_knights_habitat }
+				NOT = { owner = { has_origin = origin_toxic_knights } }
+			}
+		}
+		text = job_merchant_effect_desc
+	}
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				NOT = { has_authority = auth_corporate }
+				is_regular_empire = yes
+			}
+			OR = {
+				NOT = { has_planet_flag = toxic_knights_habitat }
+				NOT = { owner = { has_origin = origin_toxic_knights } }
+			}
+		}
+		text = job_politician_effect_desc
+	}
+
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				has_origin = origin_toxic_knights
+				NOR = {
+					has_country_flag = toxoids_7011_b
+					has_country_flag = toxoids_7040_b
+					has_country_flag = toxoids_7130_b
+				}
+			}
+			has_planet_flag = toxic_knights_habitat
+		}
+		text = job_knight_commander_effect_desc
+	}
+
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				has_origin = origin_toxic_knights
+				OR = {
+					has_country_flag = toxoids_7011_b
+					has_country_flag = toxoids_7040_b
+					has_country_flag = toxoids_7130_b
+				}
+			}
+			has_planet_flag = toxic_knights_habitat
+		}
+		text = job_knight_commander_research_effect_desc
+	}
+
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				has_origin = origin_toxic_knights
+			}
+			has_planet_flag = toxic_knights_habitat
+		}
+		text = job_knight_effect_desc
+	}
+
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { is_mechanical_empire = yes }
+		}
+		text = job_roboticist_effect_desc
+	}
+
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				has_authority = auth_corporate
+			}
+			OR = {
+				NOT = { has_planet_flag = toxic_knights_habitat }
+				NOT = { owner = { has_origin = origin_toxic_knights } }
+			}
+		}
+		text = job_executive_effect_desc
+	}
+
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { is_regular_empire = yes }
+		}
+		text = job_enforcer_effect_desc
+	}
+
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { is_machine_empire = yes }
+		}
+		text = job_coordinator_effect_desc
+	}
+
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { is_machine_empire = yes }
+		}
+		text = job_replicator_effect_desc
+	}
+
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { is_machine_empire = yes }
+		}
+		text = job_maintenance_drone_effect_desc
+	}
+
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { is_hive_empire = yes }
+		}
+		text = job_synapse_drone_effect_desc
+	}
+}
+           
+# 基础巢穴
+# 基础的海嗣巢穴，可供个体休息
+building_sea_basicnest = {
+	base_buildtime = @b1_time
+
+	category = amenity
+
+	potential = {
+		exists = owner
+		owner = {
+			has_authority = auth_sea
+		}
+	}
+
+	destroy_trigger = {
+		exists = owner
+		OR = {
+			AND = {
+				owner = { is_ai = yes }
+				years_passed < 3
+			}#Blow up the one on the homeworld.
+			AND = {
+				planet = {
+					free_building_slots = 0
+					free_jobs < 1
+					free_housing > 10
+					owner = {
+						is_ai = yes
+					}
+				}
+			}
+			NOT = {
+				owner = {
+					has_authority = auth_sea
+				}
+			}
+		}
+	}
+
+	convert_to = {
+		building_hive_warren
+		building_luxury_residence
+		building_drone_storage
+		building_communal_housing
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				has_active_tradition = tr_domination_imperious_architecture
+			}
+		}
+		modifier = {
+			planet_housing_add = 1
+		}
+	}
+
+	planet_modifier = {
+		planet_housing_add = 3
+		planet_amenities_add = 5
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = @b1_minerals
+		}
+		upkeep = {
+			energy = 2
+		}
+	}
+
+	upgrades = {
+		"building_sea_expandednest"
+	}
+}
+# 拓展巢穴
+# 经过拓展的巢穴，大大增加了空间利用率，能同时容纳更多的个体
+building_sea_expandednest = {
+	base_buildtime = @b2_time
+	can_build = no
+
+	category = amenity
+
+	potential = {
+		has_building = building_sea_basicnest
+	}
+
+	allow = {
+		has_upgraded_capital = yes
+	}
+
+	show_tech_unlock_if = {
+		owner = {
+			has_authority = auth_sea
+		}
+	}
+
+	convert_to = {
+		building_expanded_warren
+		building_paradise_dome
+		building_drone_megastorage
+		building_communal_housing_large
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				has_active_tradition = tr_domination_imperious_architecture
+			}
+		}
+		modifier = {
+			planet_housing_add = 1
+		}
+	}
+
+	planet_modifier = {
+		planet_housing_add = 6
+		planet_amenities_add = 10
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = @b2_minerals
+			rare_crystals = @b2_rare_cost
+		}
+		upkeep = {
+			energy = 3
+			rare_crystals = @b2_rare_upkeep
+		}
+	}
+
+
+	prerequisites = {
+		"tech_housing_2"
+	}
+}
+# 塑路者试验场
+building_sea_guide_lab_1 = {
+	base_buildtime = @b1_time
+	exempt_from_ai_planet_specialization = no
+	category = research
+	potential = {
+		owner = { has_authority = auth_sea }
+		NOT = { has_modifier = resort_colony }
+		NOT = { has_modifier = slave_colony }
+	}
+
+	destroy_trigger = {
+		OR = {
+			NOT = { owner = { has_authority = auth_sea } }
+			has_modifier = slave_colony
+			has_modifier = resort_colony
+		}
+	}
+
+	# 海嗣
+	planet_modifier = {
+		job_sea_guide_add = @b1_jobs
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = @b1_minerals
+		}
+		upkeep = {
+			energy = @b1_upkeep
+		}
+	}
+	convert_to = {
+		building_research_lab_1
+	}
+
+	upgrades = {
+		"building_sea_guide_lab_2"
+	}
+
+	prerequisites = {
+		"tech_basic_science_lab_1"
+	}
+
+	triggered_desc = {
+		text = job_sea_guide_effect_desc
+	}
+}
+# 塑路者试验中心
+building_sea_guide_lab_2 = {
+	base_buildtime = @b2_time
+	can_build = no
+	category = research
+	allow = {
+		has_upgraded_capital = yes
+	}
+
+	destroy_trigger = {
+		OR = {
+			NOT = { owner = { has_authority = auth_sea } }
+			has_modifier = slave_colony
+			has_modifier = resort_colony
+		}
+	}
+
+	# 海嗣
+	planet_modifier = {
+		job_sea_guide_add = @b2_jobs
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = @b2_minerals
+			exotic_gases = @b2_rare_cost
+		}
+		upkeep = {
+			energy = @b2_upkeep
+			exotic_gases = @b2_rare_upkeep
+		}
+	}
+
+	convert_to = {
+		building_research_lab_2
+	}
+
+	upgrades = {
+		"building_sea_guide_lab_3"
+	}
+
+	prerequisites = {
+		"tech_basic_science_lab_2"
+	}
+
+	# 海嗣
+	triggered_desc = {
+		text = job_sea_guide_effect_desc
+	}
+}
+# 塑路者试验场域
+building_sea_guide_lab_3 = {
+	base_buildtime = @b3_time
+	can_build = no
+
+	category = research
+
+	allow = {
+		has_major_upgraded_capital = yes
+	}
+
+	destroy_trigger = {
+		OR = {
+			NOT = { owner = { has_authority = auth_sea } }
+			has_modifier = slave_colony
+			has_modifier = resort_colony
+		}
+	}
+
+	# 海嗣
+	triggered_planet_modifier = {
+		job_sea_guide_add = @b3_jobs
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = @b3_minerals
+			exotic_gases = @b3_rare_cost
+		}
+		upkeep = {
+			energy = @b3_upkeep
+			exotic_gases = @b3_rare_upkeep
+		}
+	}
+
+	convert_to = {
+		building_research_lab_3
+	}
+
+	prerequisites = {
+		"tech_basic_science_lab_3"
+	}
+
+	# 海嗣
+	triggered_desc = {
+		text = job_sea_guide_effect_desc
+	}
+}
+
+# 合金聚合体
+building_sea_foundry_1 = {
+	base_buildtime = @b1_time
+	base_cap_amount = 1
+	category = manufacturing
+
+	potential = {
+		NOT = { has_modifier = resort_colony }
+		NOT = { has_modifier = slave_colony }
+		OR = {
+			owner = {
+				is_ai = no
+			}
+			has_any_industry_district = yes
+		}
+		owner = { has_authority = auth_sea }
+	}
+
+	destroy_trigger = {
+		OR = {
+			has_modifier = resort_colony
+			has_modifier = slave_colony
+			AND = {
+				exists = owner
+				owner = {
+					is_ai = yes
+				}
+				has_any_industry_district = no
+			}
+			NOT = { owner = { has_authority = auth_sea } }
+		}
+	}
+
+	# 海嗣
+	planet_modifier = {
+		job_sea_dsurch_add = @b1_jobs
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = @b1_minerals
+		}
+		upkeep = {
+			energy = @b1_upkeep
+		}
+	}
+
+	convert_to = {
+		building_foundry_1
+	}
+
+	upgrades = {
+		building_sea_foundry_2
+	}
+
+	prerequisites = {
+		tech_basic_industry
+	}
+
+	# 海嗣
+	triggered_desc = {
+		text = job_sea_dsurch_effect_desc
+	}
+
+	ai_resource_production = {
+		alloys = 8
+		trigger = {
+			planet_resource_compare = {
+				resource = alloys
+				value >= 20
+				type = produces
+			}
+		}
+	}
+}
+# 高级合金聚合体
+building_sea_foundry_2 = {
+	base_buildtime = @b2_time
+	can_build = no
+	category = manufacturing
+
+	allow = {
+		has_upgraded_capital = yes
+	}
+
+	destroy_trigger = {
+		OR = {
+			has_modifier = resort_colony
+			has_modifier = slave_colony
+			AND = {
+				exists = owner
+				owner = {
+					is_ai = yes
+				}
+				has_any_industry_district = no
+			}
+			NOT = { owner = { has_authority = auth_sea } }
+		}
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = @b2_minerals
+			volatile_motes = @b3_rare_cost
+		}
+		upkeep = {
+			energy = @b2_upkeep
+			volatile_motes = @b3_rare_upkeep
+		}
+	}
+
+	convert_to = {
+		building_foundry_2
+	}
+
+	upgrades = {
+		building_sea_foundry_3
+	}
+
+	prerequisites = {
+		tech_alloys_1
+	}
+
+	planet_modifier = {
+		planet_metallurgists_minerals_upkeep_add = 4
+		planet_metallurgists_alloys_produces_add = 1
+		job_sea_dsurch_add = @b1_jobs
+	}
+
+	# 海嗣
+	triggered_desc = {
+		text = job_sea_dsurch_effect_desc
+	}
+}
+# 纳米合金聚合体
+building_sea_foundry_3 = {
+	base_buildtime = @b3_time
+	can_build = no
+	category = manufacturing
+
+	allow = {
+		has_major_upgraded_capital = yes
+	}
+
+	destroy_trigger = {
+		OR = {
+			has_modifier = resort_colony
+			has_modifier = slave_colony
+			AND = {
+				exists = owner
+				owner = {
+					is_ai = yes
+				}
+				has_any_industry_district = no
+			}
+		}
+		NOT = { owner = { has_authority = auth_sea } }
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = @b3_minerals
+			volatile_motes = @b4_rare_cost
+		}
+		upkeep = {
+			energy = @b3_upkeep
+			volatile_motes = @b4_rare_upkeep
+		}
+	}
+
+	convert_to = {
+		building_foundry_3
+	}
+
+	prerequisites = {
+		tech_alloys_2
+	}
+
+	planet_modifier = {
+		planet_metallurgists_alloys_produces_add = 2
+		planet_metallurgists_minerals_upkeep_add = 4
+		job_sea_dsurch_add = @b1_jobs
+	}
+
+	# 海嗣
+	triggered_desc = {
+		text = job_sea_dsurch_effect_desc
+	}
+}
+# 资源处理中心
+building_sea_foundry_4 = {
+	base_buildtime = @b2_time
+	base_cap_amount = 1
+
+	category = manufacturing
+
+	potential = {
+		exists = owner
+		owner = { has_authority = auth_sea }
+		OR = {
+			owner = { is_ai = no }
+			has_any_industry_district = yes
+		}
+	}
+
+	destroy_trigger = {
+		exists = owner
+		OR = {
+			owner = { NOT = { has_authority = auth_sea } }
+			AND = {
+				owner = { is_ai = yes }
+				has_any_industry_district = no
+			}
+		}
+	}
+
+	allow = {
+		has_major_upgraded_capital = yes
+	}
+
+	planet_modifier = {
+		planet_metallurgists_produces_mult = 0.3
+		job_sea_dsurch_add = 2
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = @b2_minerals
+			volatile_motes = @b2_rare_cost
+		}
+		upkeep = {
+			energy = @b2_upkeep
+			volatile_motes = @b2_rare_upkeep
+		}
+	}
+
+	convert_to = {
+		building_production_center
+	}
+
+	prerequisites = {
+		"tech_global_production_strategy"
+	}
+
+	triggered_desc = {
+		text = job_sea_dsurch_effect_desc
+	}
+
+	show_tech_unlock_if = {
+		has_authority = auth_sea
+	}
+
+	ai_resource_production = {
+		alloys = 6
+		trigger = {
+			planet_resource_compare = {
+				resource = alloys
+				value >= 40
+				type = produces
+			}
+		}
+	}
+}
+
+#############
+# Hive buildings
+#############
+# 繁殖所
+# 无数的育母在这里繁衍子嗣壮大族群
+building_sea_breeding_ground = {
+	base_buildtime = @b1_time
+	base_cap_amount = 1
+
+	category = pop_assembly
+
+	potential = {
+		exists = owner
+		owner = {
+			has_authority = auth_sea
+		}
+		OR = {
+			num_buildings = { type = any value < 15 }
+			owner = { is_ai = no }
+		}
+	}
+
+	destroy_trigger = {
+		exists = owner
+		owner = {
+			NOT = { has_authority = auth_sea }
+		}
+	}
+
+	convert_to = {
+		building_spawning_pool
+		building_offspring_nest
+	}
+
+	planet_modifier = {
+		job_sea_sypult_add = 1
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = @b1_minerals
+		}
+		upkeep = {
+			energy = 2
+		}
+	}
+	
+	# 海嗣
+	triggered_desc = {
+		text = job_sea_sypult_effect_desc
+	}
+}
+
+# 凝聚力建筑
+# 突触
+# 文化研究群
+building_sea_cultural_research_group_1 = {
+	base_buildtime = @b1_time
+
+	exempt_from_ai_planet_specialization = no
+
+	category = unity
+
+	potential = {
+		exists = owner
+		owner = {
+			has_authority = auth_sea
+		}
+	}
+
+	destroy_trigger = {
+		exists = owner
+		owner = {
+			NOT = { has_authority = auth_sea }
+		}
+	}
+
+	convert_to = {
+		building_hive_node
+		building_bureaucratic_1
+		building_temple
+		building_uplink_node
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = @b1_minerals
+		}
+		upkeep = {
+			energy = @b1_upkeep
+		}
+		upkeep = {
+			trigger = {
+				exists = owner
+				owner = {
+					has_edict = synaptic_reinforcement_sea
+				}
+			}
+			energy = 2
+		}
+	}
+
+	planet_modifier = {
+		job_sea_relay_add = @b1_jobs
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				# 传统：支配-宏伟建筑
+				has_active_tradition = tr_domination_synaptic_extensions
+			}
+		}
+		modifier = {
+			planet_housing_add = 2
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				has_edict = synaptic_reinforcement_sea
+			}
+		}
+		job_sea_cleaners_add = 1
+	}
+
+	triggered_desc = {
+		text = job_sea_cleaners_effect_desc
+	}
+
+	prerequisites = {
+		"tech_hive_node"
+	}
+
+	upgrades = {
+		building_sea_cultural_research_group_2
+	}
+}
+
+building_sea_cultural_research_group_2 = {
+	base_buildtime = @b2_time
+	can_build = no
+
+	exempt_from_ai_planet_specialization = no
+
+	category = unity
+
+	potential = {
+		exists = owner
+		owner = {
+			has_authority = auth_sea
+		}
+	}
+
+	allow = {
+		has_upgraded_capital = yes
+	}
+
+	destroy_trigger = {
+		exists = owner
+		owner = {
+			NOT = { has_authority = auth_sea }
+		}
+	}
+
+	convert_to = {
+		building_hive_cluster
+		building_bureaucratic_2
+		building_holotemple
+		building_network_junction
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = @b2_minerals
+			exotic_gases = @b2_rare_cost
+		}
+		upkeep = {
+			energy = @b2_upkeep
+			exotic_gases = @b2_rare_upkeep
+		}
+		# upkeep = {
+		# 	trigger = {
+		# 		exists = owner
+		# 		owner = {
+		# 			has_edict = synaptic_reinforcement
+		# 		}
+		# 	}
+		# 	energy = 2
+		# }
+	}
+
+	planet_modifier = {
+		job_sea_relay_add = @b2_jobs
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				has_active_tradition = tr_domination_synaptic_extensions
+			}
+		}
+		modifier = {
+			planet_housing_add = 2
+		}
+	}
+
+	# triggered_planet_modifier = {
+	# 	potential = {
+	# 		exists = owner
+	# 		owner = {
+	# 			has_edict = synaptic_reinforcement
+	# 		}
+	# 	}
+	# 	job_sea_cleaners_add = 1
+	# }
+
+	triggered_desc = {
+		text = job_sea_cleaners_effect_desc
+	}
+
+	prerequisites = {
+		"tech_hive_cluster"
+	}
+
+	upgrades = {
+		building_sea_cultural_research_group_3
+	}
+}
+
+building_sea_cultural_research_group_3 = {
+	base_buildtime = @b3_time
+	can_build = no
+
+	category = unity
+
+	potential = {
+		exists = owner
+		owner = {
+			has_authority = auth_sea
+		}
+	}
+
+	allow = {
+		has_major_upgraded_capital = yes
+	}
+
+	destroy_trigger = {
+		exists = owner
+		owner = {
+			NOT = { has_authority = auth_sea }
+		}
+	}
+
+	convert_to = {
+		building_hive_confluence
+		building_bureaucratic_3
+		building_sacred_nexus
+		building_system_conflux
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = @b3_minerals
+			exotic_gases = @b3_rare_cost
+		}
+		upkeep = {
+			energy = @b3_upkeep
+			exotic_gases = @b3_rare_upkeep
+		}
+		# upkeep = {
+		# 	trigger = {
+		# 		exists = owner
+		# 		owner = {
+		# 			has_edict = synaptic_reinforcement
+		# 		}
+		# 	}
+		# 	energy = 2
+		# }
+	}
+
+	planet_modifier = {
+		job_sea_relay_add = @b3_jobs
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				has_active_tradition = tr_domination_synaptic_extensions
+			}
+		}
+		modifier = {
+			planet_housing_add = 2
+		}
+	}
+
+	# triggered_planet_modifier = {
+	# 	potential = {
+	# 		exists = owner
+	# 		owner = {
+	# 			has_edict = synaptic_reinforcement
+	# 		}
+	# 	}
+	# 	job_sea_cleaners_add = 1
+	# }
+
+	prerequisites = {
+		"tech_hive_confluence"
+	}
+
+	triggered_desc = {
+		text = job_sea_relay_effect_desc
+	}
+}
+
+# 纪念馆建筑
+building_sea_sensorium_1 = {
+	base_buildtime = @b1_time
+	base_cap_amount = 1
+	icon = building_holo_theatres
+
+	category = unity
+
+	potential = {
+		exists = owner
+		NOT = { has_modifier = slave_colony }
+		owner = {
+			has_authority = auth_sea
+			is_memorialist_empire = no
+		}
+	}
+
+	destroy_trigger = {
+		exists = owner
+		OR = {
+			has_modifier = slave_colony
+			owner = {
+				OR = {
+					NOT = { has_authority = auth_sea }
+					is_memorialist_empire = yes
+				}
+			}
+		}
+	}
+
+	resources = {
+		category = planet_buildings
+		produces = {
+			trigger = { exists = owner }
+			unity = 1
+			multiplier = owner.trigger:num_ascension_perks
+		}
+		cost = {
+			minerals = @b1_minerals
+		}
+	}
+
+	planet_modifier = {
+		planet_jobs_unity_produces_mult = 0.05
+		job_sea_anita_add = @b1_jobs
+	}
+
+	triggered_desc = {
+		text = building_autochthon_monument_effect
+	}
+
+	triggered_desc = {
+		text = job_sea_anita_effect_desc
+	}
+
+	prerequisites = {
+		"tech_hive_node"
+	}
+
+	convert_to = {
+		building_sensorium_1
+		building_autochthon_monument
+		building_corporate_monument
+		building_galactic_memorial_1
+		building_simulation_1
+	}
+
+	show_tech_unlock_if = {
+		has_authority = auth_sea
+		is_memorialist_empire = no
+	}
+
+	upgrades = {
+		building_sea_sensorium_2
+	}
+}
+
+building_sea_sensorium_2 = {
+	base_buildtime = @b2_time
+	can_build = no
+	icon = building_hyper_entertainment_forum
+
+	category = unity
+
+	potential = {
+		exists = owner
+		NOT = { has_modifier = slave_colony }
+		owner = {
+			has_authority = auth_sea
+			is_memorialist_empire = no
+		}
+	}
+
+	allow = {
+		has_upgraded_capital = yes
+	}
+
+	destroy_trigger = {
+		exists = owner
+		OR = {
+			has_modifier = slave_colony
+			owner = {
+				OR = {
+					NOT = { has_authority = auth_sea }
+					is_memorialist_empire = yes
+				}
+			}
+		}
+	}
+
+	convert_to = {
+		building_sensorium_2
+		building_corporate_site
+		building_heritage_site
+		building_galactic_memorial_2
+		building_simulation_2
+	}
+
+	resources = {
+		category = planet_buildings
+		produces = {
+			trigger = { exists = owner }
+			unity = 2
+			multiplier = owner.trigger:num_ascension_perks
+		}
+		cost = {
+			minerals = @b2_minerals
+		}
+	}
+
+	planet_modifier = {
+		planet_jobs_unity_produces_mult = 0.10
+		job_sea_anita_add = @b2_jobs
+	}
+
+	triggered_desc = {
+		text = building_heritage_site_effect
+	}
+
+	triggered_desc = {
+		text = job_sea_anita_effect_desc
+	}
+
+	prerequisites = {
+		"tech_hive_cluster"
+	}
+
+	show_tech_unlock_if = {
+		has_authority = auth_sea
+		is_memorialist_empire = no
+	}
+
+	upgrades = {
+		building_sea_sensorium_3
+	}
+}
+
+building_sea_sensorium_3 = {
+	base_buildtime = @b3_time
+	can_build = no
+	icon = building_citadel_of_faith
+
+	category = unity
+
+	potential = {
+		exists = owner
+		NOT = { has_modifier = slave_colony }
+		owner = {
+			has_authority = auth_sea
+			is_memorialist_empire = no
+		}
+	}
+
+	allow = {
+		has_major_upgraded_capital = yes
+	}
+
+	destroy_trigger = {
+		exists = owner
+		OR = {
+			has_modifier = slave_colony
+			owner = {
+				OR = {
+					NOT = { has_authority = auth_sea }
+					is_memorialist_empire = yes
+				}
+			}
+		}
+	}
+
+	convert_to = {
+		building_sensorium_3
+		building_corporate_forum
+		building_hypercomms_forum
+		building_galactic_memorial_3
+		building_simulation_3
+	}
+
+	resources = {
+		category = planet_buildings
+		produces = {
+			trigger = { exists = owner }
+			unity = 3
+			multiplier = owner.trigger:num_ascension_perks
+		}
+		cost = {
+			minerals = @b3_minerals
+		}
+	}
+
+	planet_modifier = {
+		planet_jobs_unity_produces_mult = 0.15
+		job_sea_anita_add = @b3_jobs
+	}
+
+	triggered_desc = {
+		text = building_hypercomms_forum_effect
+	}
+
+	triggered_desc = {
+		text = job_sea_anita_effect_desc
+	}
+
+	prerequisites = {
+		"tech_hive_confluence"
+	}
+
+	show_tech_unlock_if = {
+		has_authority = auth_sea
+		is_memorialist_empire = no
+	}
+}
+
+# 长眠庇护所
+# 不重写了
+#Sanctuary of Repose
+building_galactic_memorial_1 = {
+	base_buildtime = @b1_time
+	base_cap_amount = 1
+	category = unity
+
+	potential = {
+		exists = owner
+		NOT = { has_modifier = slave_colony }
+		owner = {
+			is_memorialist_empire = yes
+		}
+	}
+
+	destroy_trigger = {
+		exists = owner
+		OR = {
+			has_modifier = slave_colony
+			owner = {
+				is_memorialist_empire = no
+			}
+		}
+	}
+
+	convert_to = {
+		building_sea_sensorium_1
+		building_autochthon_monument
+		building_corporate_monument
+		building_simulation_1
+		building_sensorium_1
+	}
+
+	resources = {
+		category = planet_buildings
+		produces = {
+			trigger = { exists = owner }
+			unity = 1
+			multiplier = owner.trigger:num_ascension_perks
+		}
+		cost = {
+			minerals = @b1_minerals
+		}
+		upkeep = {
+			minerals = @b1_upkeep
+		}
+	}
+
+	planet_modifier = {
+		planet_jobs_unity_produces_mult = 0.05
+	}
+
+	triggered_desc = {
+		text = building_autochthon_monument_effect
+	}
+
+	prerequisites = {
+		"tech_cultural_heritage"
+	}
+
+	#Jobs
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_gestalt = no }
+		}
+		job_death_chronicler_add = @b1_jobs
+	}
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { is_gestalt = no }
+		}
+		text = "job_death_chronicler_effect_desc"
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_gestalt = yes
+				NOT = { has_authority = auth_sea }
+			}
+		}
+		job_chronicle_drone_add = @b1_jobs
+	}
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				AND = {
+					is_gestalt = yes
+					NOT = { has_authority = auth_sea }
+				}
+			}
+		}
+		text = "job_chronicle_drone_effect_desc"
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				has_authority = auth_sea
+			}
+		}
+		job_sea_dsmant_add = @b1_jobs
+	}
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				has_authority = auth_sea
+			}
+		}
+		text = "job_sea_dsmant_effect_desc"
+	}
+
+	#Tomb/Relic worlds
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_gestalt = no }
+			OR = {
+				is_planet_class = pc_nuked
+				is_planet_class = pc_relic
+			}
+		}
+		pop_government_ethic_attraction = 0.20
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_gestalt = yes }
+			OR = {
+				is_planet_class = pc_nuked
+				is_planet_class = pc_relic
+			}
+		}
+		planet_crime_no_happiness_add = -20
+	}
+
+	upgrades = {
+		building_galactic_memorial_2
+	}
+
+	show_tech_unlock_if = {
+		is_memorialist_empire = yes
+	}
+}
+
+#Pillar of Quietus
+building_galactic_memorial_2 = {
+	base_buildtime = @b2_time
+	can_build = no
+	category = unity
+
+	potential = {
+		exists = owner
+		NOT = { has_modifier = slave_colony }
+		owner = {
+			is_memorialist_empire = yes
+		}
+	}
+
+	allow = {
+		exists = owner
+		has_upgraded_capital = yes
+	}
+
+	destroy_trigger = {
+		exists = owner
+		OR = {
+			has_modifier = slave_colony
+			owner = {
+				is_memorialist_empire = no
+			}
+		}
+	}
+
+	convert_to = {
+		building_sea_sensorium_2
+		building_heritage_site
+		building_corporate_site
+		building_simulation_2
+		building_sensorium_2
+	}
+
+	resources = {
+		category = planet_buildings
+		produces = {
+			trigger = { exists = owner }
+			unity = 2
+			multiplier = owner.trigger:num_ascension_perks
+		}
+		cost = {
+			minerals = @b2_minerals
+			exotic_gases = @b2_rare_cost
+		}
+		upkeep = {
+			minerals = @b2_upkeep
+			exotic_gases = @b2_rare_upkeep
+		}
+	}
+
+	planet_modifier = {
+		planet_jobs_unity_produces_mult = 0.10
+	}
+
+	triggered_desc = {
+		text = building_heritage_site_effect
+	}
+
+	prerequisites = {
+		"tech_heritage_site"
+	}
+
+	#Jobs
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_gestalt = no }
+		}
+		job_death_chronicler_add = @b2_jobs
+	}
+
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { is_gestalt = no }
+		}
+		text = "job_death_chronicler_effect_desc"
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_gestalt = yes
+				NOT = { has_authority = auth_sea }
+			}
+		}
+		job_chronicle_drone_add = @b2_jobs
+	}
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				is_gestalt = yes
+				NOT = { has_authority = auth_sea }
+			}
+		}
+		text = "job_chronicle_drone_effect_desc"
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				has_authority = auth_sea
+			}
+		}
+		job_sea_dsmant_add = @b2_jobs
+	}
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				has_authority = auth_sea
+			}
+		}
+		text = "job_sea_dsmant_effect_desc"
+	}
+
+	#Tomb/Relic worlds
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_gestalt = no }
+			OR = {
+				is_planet_class = pc_nuked
+				is_planet_class = pc_relic
+			}
+		}
+		pop_government_ethic_attraction = 0.20
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_gestalt = yes }
+			OR = {
+				is_planet_class = pc_nuked
+				is_planet_class = pc_relic
+			}
+		}
+		planet_crime_no_happiness_add = -20
+	}
+
+	upgrades = {
+		building_galactic_memorial_3
+	}
+
+	show_tech_unlock_if = {
+		is_memorialist_empire = yes
+	 }
+}
+
+#Galactic Memorial
+building_galactic_memorial_3 = {
+	base_buildtime = @b3_time
+	can_build = no
+	category = unity
+
+	potential = {
+		exists = owner
+		NOT = { has_modifier = slave_colony }
+		owner = {
+			is_memorialist_empire = yes
+		}
+	}
+
+	allow = {
+		has_major_upgraded_capital = yes
+	}
+
+	destroy_trigger = {
+		exists = owner
+		OR = {
+			has_modifier = slave_colony
+			owner = { is_memorialist_empire = no }
+		}
+	}
+
+	convert_to = {
+		building_sea_sensorium_3
+		building_hypercomms_forum
+		building_corporate_forum
+		building_simulation_3
+		building_sensorium_3
+	}
+
+	resources = {
+		category = planet_buildings
+		produces = {
+			trigger = { exists = owner }
+			unity = 3
+			multiplier = owner.trigger:num_ascension_perks
+		}
+		cost = {
+			minerals = @b3_minerals
+			exotic_gases = @b3_rare_cost
+		}
+		upkeep = {
+			minerals = @b3_upkeep
+			exotic_gases = @b3_rare_upkeep
+		}
+	}
+
+	planet_modifier = {
+		planet_jobs_unity_produces_mult = 0.15
+	}
+
+	triggered_desc = {
+		text = building_hypercomms_forum_effect
+	}
+
+	prerequisites = {
+		"tech_hypercomms_forum"
+	}
+
+	#Jobs
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_gestalt = no }
+		}
+		job_death_chronicler_add = @b3_jobs
+	}
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { is_gestalt = no }
+		}
+		text = "job_death_chronicler_effect_desc"
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_gestalt = yes
+				NOT = { has_authority = auth_sea }
+			}
+		}
+		job_chronicle_drone_add = @b3_jobs
+	}
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				is_gestalt = yes
+				NOT = { has_authority = auth_sea }
+			}
+		}
+		text = "job_chronicle_drone_effect_desc"
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				has_authority = auth_sea
+			}
+		}
+		job_sea_dsmant_add = @b3_jobs
+	}
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				has_authority = auth_sea
+			}
+		}
+		text = "job_sea_dsmant_effect_desc"
+	}
+
+	#Tomb/Relic worlds
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_gestalt = no }
+			OR = {
+				is_planet_class = pc_nuked
+				is_planet_class = pc_relic
+			}
+		}
+		pop_government_ethic_attraction = 0.20
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_gestalt = yes }
+			OR = {
+				is_planet_class = pc_nuked
+				is_planet_class = pc_relic
+			}
+		}
+		planet_crime_no_happiness_add = -20
+	}
+
+	show_tech_unlock_if = {
+		is_memorialist_empire = yes
+	}
+}
+
+# 有机庇护所
+sea_holding_organic_sanctuary = {
+	base_buildtime = @b2_time
+	category = unity
+	icon = building_organic_sanctuary
+	base_cap_amount = 1
+
+	resources = {
+		category = planet_holdings
+		upkeep = {
+			food = 20
+		}
+	}
+
+	potential = {
+		owner = {
+			has_authority = auth_sea
+			has_civic = civic_sea_memorialist
+		}
+	}
+	destroy_trigger = {
+		exists = owner
+		owner = {
+			NAND = {
+				has_authority = auth_sea
+				has_civic = civic_sea_memorialist
+			}
+		}
+	}
+	convert_to = {
+		holding_organic_sanctuary
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = planet.owner
+			planet.owner = { has_authority = auth_sea }
+		}
+		job_overlord_bio_trophy_drone_add = 10
+	}
+	triggered_desc = {
+		text = job_overlord_bio_trophy_effect_desc
+	}
+}

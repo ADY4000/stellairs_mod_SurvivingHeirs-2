@@ -1,0 +1,46 @@
+﻿l_simp_chinese:
+trait_sea: "海嗣"
+trait_sea_desc: "祂们来自大海，但却能依靠自我想法演化出相应的器官，因此拥有极强的适应力"
+trait_sea_effect: "§G环境适应性+40%\n人口增长速度+25%\n陆军伤害+30%\n§"
+
+civic_sea: "遗嗣初生"
+civic_sea_desc: "大群 恢复元气。\n渡往星河！"
+
+origin_sea: "遗嗣初生"
+origin_sea_desc: "这一物种的母星被某种高等文明摧毁，残存的子个体进化出了在太空生存的能力"
+origin_sea_effects_desc: "—游戏开始时以§H轨道居住站§!作为你的初始基地。\n繁殖，壮大，同化星河！"
+
+auth_sea: "海嗣"
+auth_sea_desc: "在大多数时候，所有的海嗣没有自由意志，一切行为不过是大群意志的延伸。\n\n当与大群分离，个体会变得迷惑最终死亡。任何处在由大群控制星球上的自由个体都会被当做养料壮大大群，除非被海嗣当成学习的对象"
+
+gov_sea: "大群意志"
+gov_sea_desc: "我们即是大群，我们追随引路人的指引"
+
+civic_sea_one_mind: "至高意志"
+civic_sea_one_mind_desc: "大群的意识没有杂音，所有个体都向着一个方向前进"
+civic_sea_one_mind_effects: "§G免除海嗣迁徙的凝聚力成本§\n\n"
+
+civic_sea_divided_attention: "意志中继"
+civic_sea_divided_attention_desc: "少量的高级子个体让意志传达的成本大大降低了"
+
+civic_sea_memorialist: "纪念主义"
+civic_sea_memorialist_desc: "在进化出发声器官后，我们学会的第一个词组是\"朋友\"和\"礼物\""
+civic_sea_memorialist_effects: "能够建造 £building£§Y$building_galactic_memorial_1$§!\n$building_galactic_memorial_gestalt_tooltip$\n$job_chronicle_drone_effect_desc$\n"
+
+civic_sea_subsumed_will: "大群意志"
+civic_sea_subsumed_will_desc: "我们团结在大群的指引下......"
+
+civic_sea_ascetic: "快速适应"
+civic_sea_ascetic_desc: "海嗣能够以自我想法为核心进化出所需的器官"
+
+civic_sea_pooled_knowledge: "加密传感"
+civic_sea_pooled_knowledge_desc: "原始的信息交流方式已经过时，我们需要进化出更高效的交流方式"
+
+civic_sea_strength_of_legions: "海嗣军团"
+civic_sea_strength_of_legions_desc: "大群饿了，同化，捕食。"
+
+sea_C: "海嗣"
+
+name_list_sea_name_list_01: "海嗣"
+
+AUTH_sea_CLEAN: "非§H海嗣§!£pop£人口会被当做养分喂养大群。"

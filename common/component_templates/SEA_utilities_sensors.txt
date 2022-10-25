@@ -1,0 +1,28 @@
+# 雷达
+@sea_sensor_cost1 = 2
+@sea_sensor_power1 = -1
+@sea_sensor_sensor1 = 1
+@sea_sensor_hyperlane1 = 2
+
+utility_component_template = {
+	key = "sea_SENSOR_1"
+	size = medium
+	icon = "GFX_ship_part_sensor_1"
+	icon_frame = 1
+	power = @sea_sensor_power1
+	resources = {
+		category = ship_components
+		cost = {
+			food = @sea_sensor_cost1
+		}
+	}
+	sensor_range = @sea_sensor_sensor1
+	hyperlane_range = @sea_sensor_hyperlane1
+	class_restriction = { shipclass_military }
+	size_restriction = { sea_corvette }
+	component_set = "sea_sensor_components"
+
+	ai_weight = {
+		weight = 1
+	}
+}

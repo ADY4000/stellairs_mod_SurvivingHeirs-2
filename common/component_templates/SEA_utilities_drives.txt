@@ -1,0 +1,42 @@
+# 引擎
+@sea_ftl_cost1 = 5
+@sea_ftl_power1 = -1
+
+### NON-FTL DRIVE
+utility_component_template = {
+	key = "sea_EMPTY_DRIVE"
+	size = small
+	icon = "GFX_ship_part_empty_ftl_drive"
+	icon_frame = 1
+	power = 0
+	should_ai_use = no
+
+	class_restriction = { shipclass_military }
+	size_restriction = { sea_corvette }
+	component_set = "sea_ftl_components"
+}
+
+### HYPER DRIVES
+utility_component_template = {
+	key = "sea_HYPER_DRIVE_1"
+	size = small
+	icon = "GFX_ship_part_hyper_drive_1"
+	icon_frame = 1
+	power = @sea_ftl_power1
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @sea_ftl_cost1
+		}
+	}
+	ftl = yes
+
+	ai_weight = {
+		weight = 1
+	}
+	class_restriction = { shipclass_military }
+	size_restriction = { sea_corvette }
+	prerequisites = { "tech_hyper_drive_1" }
+	component_set = "sea_ftl_components"
+	upgrades_to = "HYPER_DRIVE_2"
+}

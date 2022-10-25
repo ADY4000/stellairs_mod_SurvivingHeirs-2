@@ -1,0 +1,210 @@
+# 海嗣没法用红AI
+@sea_computers_cost0 = 0
+@sea_computers_cost1 = 5
+@sea_computers_cost2 = 10
+@sea_computers_cost3 = 20
+
+@sea_computers_power0 = 0
+@sea_computers_power1 = -1
+@sea_computers_power2 = -2
+@sea_computers_power3 = -3
+
+# 基础电脑
+utility_component_template = {
+	key = "sea_COMBAT_COMPUTER_DEFAULT"
+	size = small
+	icon = "GFX_ship_part_computer_default"
+	icon_frame = 1
+	ship_behavior = "default"
+	hidden = no
+
+	class_restriction = { shipclass_military }
+	size_restriction = { sea_corvette }
+	component_set = "sea_combat_computers"
+
+	ai_weight = {
+		weight = 1
+	}
+}
+
+# 蜂拥电脑
+
+utility_component_template = {
+	key = "sea_COMBAT_COMPUTER_SWARM_BASIC"
+	size = small
+	icon = "GFX_ship_part_computer_swarm_basic"
+	icon_frame = 1
+	power = @sea_computers_power1
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @sea_computers_cost1
+		}
+	}
+	class_restriction = { shipclass_military }
+	size_restriction = { sea_corvette}
+	component_set = "sea_combat_computers"
+	ship_behavior = "swarm"
+	prerequisites = { "tech_combat_computers_1" }
+	upgrades_to = "sea_COMBAT_COMPUTER_SWARM_ADVANCED"
+
+	modifier = {
+		ship_evasion_mult = 0.05
+	}
+	ship_modifier = {
+		ship_fire_rate_mult = 0.05
+	}
+
+	ai_weight = {
+		weight = 2
+	}
+}
+
+utility_component_template = {
+	key = "sea_COMBAT_COMPUTER_SWARM_ADVANCED"
+	size = small
+	icon = "GFX_ship_part_computer_swarm_advanced"
+	icon_frame = 1
+	power = @sea_computers_power2
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @sea_computers_cost2
+		}
+	}
+	class_restriction = { shipclass_military }
+	size_restriction = { sea_corvette }
+	component_set = "sea_combat_computers"
+	ship_behavior = "swarm"
+	prerequisites = { "tech_combat_computers_2" }
+
+	modifier = {
+		ship_evasion_mult = 0.10
+	}
+	ship_modifier = {
+		ship_fire_rate_mult = 0.10
+	}
+
+	ai_weight = {
+		weight = 3
+	}
+}
+
+utility_component_template = {
+	key = "sea_COMBAT_COMPUTER_SWARM_PRECOG"
+	size = small
+	icon = "GFX_ship_part_computer_swarm_precog"
+	icon_frame = 1
+	power = @sea_computers_power3
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @sea_computers_cost3
+		}
+	}
+	class_restriction = { shipclass_military }
+	size_restriction = { sea_corvette }
+	component_set = "sea_combat_computers"
+	ship_behavior = "swarm"
+	prerequisites = { "tech_precognition_interface" }
+
+	modifier = {
+		ship_evasion_mult = 0.15
+		ship_speed_mult = 0.20
+	}
+	ship_modifier = {
+		ship_fire_rate_mult = 0.15
+	}
+
+	ai_weight = {
+		weight = 4
+	}
+}
+
+# 哨戒电脑
+
+utility_component_template = {
+	key = "sea_COMBAT_COMPUTER_PICKET_BASIC"
+	size = small
+	icon = "GFX_ship_part_computer_picket_basic"
+	icon_frame = 1
+	power = @sea_computers_power1
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @sea_computers_cost1
+		}
+	}
+	class_restriction = { shipclass_military }
+	size_restriction = { sea_corvette }
+	component_set = "sea_combat_computers"
+	ship_behavior = "picket"
+	prerequisites = { "tech_combat_computers_1" }
+	upgrades_to = "sea_COMBAT_COMPUTER_PICKET_ADVANCED"
+
+	ship_modifier = {
+		ship_fire_rate_mult = 0.05
+		ship_tracking_add = 10
+	}
+
+	ai_weight = {
+		weight = 2
+	}
+}
+
+utility_component_template = {
+	key = "sea_COMBAT_COMPUTER_PICKET_ADVANCED"
+	size = small
+	icon = "GFX_ship_part_computer_picket_advanced"
+	icon_frame = 1
+	power = @sea_computers_power2
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @sea_computers_cost2
+		}
+	}
+	class_restriction = { shipclass_military }
+	size_restriction = { sea_corvette }
+	component_set = "sea_combat_computers"
+	ship_behavior = "picket"
+	prerequisites = { "tech_combat_computers_2" }
+
+	ship_modifier = {
+		ship_fire_rate_mult = 0.10
+		ship_tracking_add = 20
+	}
+
+	ai_weight = {
+		weight = 3
+	}
+}
+
+
+utility_component_template = {
+	key = "sea_COMBAT_COMPUTER_PICKET_PRECOG"
+	size = small
+	icon = "GFX_ship_part_computer_picket_precog"
+	icon_frame = 1
+	power = @sea_computers_power3
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @sea_computers_cost3
+		}
+	}
+	class_restriction = { shipclass_military }
+	size_restriction = { sea_corvette }
+	component_set = "sea_combat_computers"
+	ship_behavior = "picket"
+	prerequisites = { "tech_precognition_interface" }
+
+	ship_modifier = {
+		ship_fire_rate_mult = 0.20
+		ship_tracking_add = 40
+	}
+
+	ai_weight = {
+		weight = 4
+	}
+}

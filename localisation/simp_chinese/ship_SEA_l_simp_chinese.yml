@@ -1,0 +1,39 @@
+﻿l_simp_chinese:
+
+sea_corvette: "*护卫舰级海嗣*"
+sea_corvette_desc: "一部分适应了太空生活的海嗣"
+sea_corvette_plural: "*护卫舰级海嗣*"
+
+sea_combat_computers: "海嗣电脑组件"
+sea_sensor_components: "海嗣雷达组件"
+sea_thruster_components: "海嗣推进器组件"
+sea_ftl_components: "海嗣引擎组件"
+sea_power_core: "海嗣反应堆组件"
+
+sea_corvette_mid: "海嗣舰首"
+
+sea_CORVETTE_MID_S6: "海嗣舰首核心"
+
+sea_COMBAT_COMPUTER_DEFAULT: "基础海嗣指挥中枢"
+
+sea_COMBAT_COMPUTER_SWARM_BASIC: "原始海嗣指挥中枢(蜂拥)"
+sea_COMBAT_COMPUTER_SWARM_ADVANCED: "先进海嗣指挥中枢(蜂拥)"
+sea_COMBAT_COMPUTER_SWARM_PRECOG: "似乎能窥视未来的海嗣指挥中枢(蜂拥)"
+
+sea_COMBAT_COMPUTER_PICKET_BASIC: "原始海嗣指挥中枢(哨戒)"
+sea_COMBAT_COMPUTER_PICKET_ADVANCED: "先进海嗣指挥中枢(哨戒)"
+sea_COMBAT_COMPUTER_PICKET_PRECOG: "似乎能窥视未来的海嗣指挥中枢(哨戒)"
+
+sea_CORVETTE_SHIP_THRUSTER_1: "原始的生物化学推进器"
+sea_CORVETTE_SHIP_THRUSTER_1_DESC: "或者叫，能喷气的翅膀？"
+
+sea_SENSOR_1: "原始的生物探测器"
+sea_SENSOR_1_DESC: "海嗣们在星球内部使用的探测器，在太空中的表现并不理想"
+
+sea_CORVETTE_FISSION_REACTOR: "原始的生物反应堆"
+sea_CORVETTE_FISSION_REACTOR_DESC: "十分原始的生物反应堆，但至少能用"
+
+sea_EMPTY_DRIVE: "无超光速引擎"
+sea_EMPTY_DRIVE_DESC: "没有超光速引擎的舰船不能离开本地恒星系。"
+sea_HYPER_DRIVE_1: "原始的曲速引擎"
+sea_HYPER_DRIVE_1_DESC: "十分原始的曲速引擎，但至少能用"

@@ -1,0 +1,397 @@
+namespace = sea_building_events
+
+# 星球拥有者改变建筑转换，包括殖民
+#FromFrom = Former Owner (if any)
+#From = Country scope (new owner)
+#This = Planet scope
+# 首都建筑1级
+planet_event = {
+	id = sea_building_events.1
+	is_triggered_only = yes
+	hide_window = yes
+	trigger = {
+		owner = { has_authority = auth_sea }
+		OR = {
+			has_building = building_colony_shelter
+			has_building = building_capital
+			has_building = building_deployment_post
+			has_building = building_hive_capital
+			has_building = building_machine_capital
+			has_building = building_resort_capital
+			has_building = building_slave_capital
+			has_building = building_ancient_control_center	
+		}
+	}
+	immediate = {
+		hidden_effect = {
+			remove_building = building_colony_shelter
+			remove_building = building_capital
+			remove_building = building_deployment_post
+			remove_building = building_hive_capital
+			remove_building = building_machine_capital
+			remove_building = building_resort_capital
+			remove_building = building_slave_capital
+			remove_building = building_ancient_control_center
+			add_building = building_sea_newcenter
+		}
+	}
+}
+# 首都建筑2级
+planet_event = {
+	id = sea_building_events.2
+	is_triggered_only = yes
+	hide_window = yes
+	trigger = {
+		owner = { has_authority = auth_sea }
+		OR = {
+			has_building = building_major_capital
+			has_building = building_system_capital
+			has_building = building_machine_major_capital
+			has_building = building_machine_system_capital
+			has_building = building_hive_major_capital
+			has_building = building_resort_major_capital
+			has_building = building_slave_major_capital
+			has_building = building_imperial_capital	
+			has_building = building_imperial_machine_capital	
+			has_building = building_imperial_hive_capital	
+		}
+	}
+	immediate = {
+		hidden_effect = {
+			remove_building = building_major_capital
+			remove_building = building_system_capital
+			remove_building = building_machine_major_capital
+			remove_building = building_machine_system_capital
+			remove_building = building_hive_major_capital
+			remove_building = building_resort_major_capital
+			remove_building = building_slave_major_capital
+			remove_building = building_imperial_capital	
+			remove_building = building_imperial_machine_capital	
+			remove_building = building_imperial_hive_capital	
+			add_building = building_sea_nervouscenter
+		}
+	}
+}
+# 住宅1级
+planet_event = {
+	id = sea_building_events.3
+	is_triggered_only = yes
+	hide_window = yes
+	trigger = {
+		owner = { has_authority = auth_sea }
+		OR = {
+			has_building = building_luxury_residence
+			has_building = building_communal_housing
+			has_building = building_drone_storage
+			has_building = building_hive_warren	
+		}
+	}
+	immediate = {
+		hidden_effect = {
+			remove_building = building_luxury_residence
+			remove_building = building_communal_housing
+			remove_building = building_drone_storage
+			remove_building = building_hive_warren
+			add_building = building_sea_basicnest
+		}
+	}
+}
+# 住宅2级
+planet_event = {
+	id = sea_building_events.4
+	is_triggered_only = yes
+	hide_window = yes
+	trigger = {
+		owner = { has_authority = auth_sea }
+		OR = {
+			has_building = building_paradise_dome
+			has_building = building_communal_housing_large
+			has_building = building_drone_megastorage
+			has_building = building_expanded_warren	
+		}
+	}
+	immediate = {
+		hidden_effect = {
+			remove_building = building_paradise_dome
+			remove_building = building_communal_housing_large
+			remove_building = building_drone_megastorage
+			remove_building = building_expanded_warren
+			add_building = building_sea_expandednest
+		}
+	}
+}
+# 科研1级
+planet_event = {
+	id = sea_building_events.5
+	is_triggered_only = yes
+	hide_window = yes
+	trigger = {
+		owner = { has_authority = auth_sea }
+		has_building = building_research_lab_1	
+	}
+	immediate = {
+		hidden_effect = {
+			remove_building = building_research_lab_1
+			add_building = building_sea_guide_lab_1
+		}
+	}
+}
+# 科研2级
+planet_event = {
+	id = sea_building_events.6
+	is_triggered_only = yes
+	hide_window = yes
+	trigger = {
+		owner = { has_authority = auth_sea }
+		has_building = building_research_lab_2
+	}
+	immediate = {
+		hidden_effect = {
+			remove_building = building_research_lab_2
+			add_building = building_sea_guide_lab_2
+		}
+	}
+}
+# 科研3级
+planet_event = {
+	id = sea_building_events.7
+	is_triggered_only = yes
+	hide_window = yes
+	trigger = {
+		owner = { has_authority = auth_sea }
+		has_building = building_research_lab_3
+	}
+	immediate = {
+		hidden_effect = {
+			remove_building = building_research_lab_3
+			add_building = building_sea_guide_lab_3
+		}
+	}
+}
+# 合金厂
+planet_event = {
+	id = sea_building_events.8
+	is_triggered_only = yes
+	hide_window = yes
+	trigger = {
+		owner = { has_authority = auth_sea }
+		has_building = building_foundry_1
+	}
+	immediate = {
+		hidden_effect = {
+			remove_building = building_foundry_1
+			add_building = building_sea_foundry_1
+		}
+	}
+}
+planet_event = {
+	id = sea_building_events.9
+	is_triggered_only = yes
+	hide_window = yes
+	trigger = {
+		owner = { has_authority = auth_sea }
+		has_building = building_foundry_2
+	}
+	immediate = {
+		hidden_effect = {
+			remove_building = building_foundry_2
+			add_building = building_sea_foundry_2
+		}
+	}
+}
+planet_event = {
+	id = sea_building_events.10
+	is_triggered_only = yes
+	hide_window = yes
+	trigger = {
+		owner = { has_authority = auth_sea }
+		has_building = building_foundry_3
+	}
+	immediate = {
+		hidden_effect = {
+			remove_building = building_foundry_3
+			add_building = building_sea_foundry_3
+		}
+	}
+}
+planet_event = {
+	id = sea_building_events.10
+	is_triggered_only = yes
+	hide_window = yes
+	trigger = {
+		owner = { has_authority = auth_sea }
+		has_building = building_production_center
+	}
+	immediate = {
+		hidden_effect = {
+			remove_building = building_production_center
+			add_building = building_sea_foundry_4
+		}
+	}
+}
+# 繁殖地
+planet_event = {
+	id = sea_building_events.11
+	is_triggered_only = yes
+	hide_window = yes
+	trigger = {
+		owner = { has_authority = auth_sea }
+		OR = {
+			has_building = building_spawning_pool
+			has_building = building_offspring_nest
+		}
+	}
+	immediate = {
+		hidden_effect = {
+			remove_building = building_spawning_pool
+			remove_building = building_offspring_nest
+			add_building = building_sea_breeding_ground
+		}
+	}
+}
+# 凝聚力建筑
+planet_event = {
+	id = sea_building_events.12
+	is_triggered_only = yes
+	hide_window = yes
+	trigger = {
+		owner = { has_authority = auth_sea }
+		OR = {
+			has_building = building_hive_node
+			has_building = building_bureaucratic_1
+			has_building = building_temple
+			has_building = building_uplink_node
+		}
+	}
+	immediate = {
+		hidden_effect = {
+			remove_building = building_hive_node
+			remove_building = building_bureaucratic_1
+			remove_building = building_temple
+			remove_building = building_uplink_node
+			add_building = building_sea_cultural_research_group_1
+		}
+	}
+}
+planet_event = {
+	id = sea_building_events.13
+	is_triggered_only = yes
+	hide_window = yes
+	trigger = {
+		owner = { has_authority = auth_sea }
+		OR = {
+			has_building = building_hive_cluster
+			has_building = building_bureaucratic_2
+			has_building = building_holotemple
+			has_building = building_network_junction
+		}
+	}
+	immediate = {
+		hidden_effect = {
+			remove_building = building_hive_cluster
+			remove_building = building_bureaucratic_2
+			remove_building = building_holotemple
+			remove_building = building_network_junction
+			add_building = building_sea_cultural_research_group_2
+		}
+	}
+}
+planet_event = {
+	id = sea_building_events.14
+	is_triggered_only = yes
+	hide_window = yes
+	trigger = {
+		owner = { has_authority = auth_sea }
+		OR = {
+			has_building = building_hive_confluence
+			has_building = building_bureaucratic_3
+			has_building = building_sacred_nexus
+			has_building = building_system_conflux
+		}
+	}
+	immediate = {
+		hidden_effect = {
+			remove_building = building_hive_confluence
+			remove_building = building_bureaucratic_3
+			remove_building = building_sacred_nexus
+			remove_building = building_system_conflux
+			add_building = building_sea_cultural_research_group_3
+		}
+	}
+}
+# 剧场
+planet_event = {
+	id = sea_building_events.15
+	is_triggered_only = yes
+	hide_window = yes
+	trigger = {
+		owner = { has_authority = auth_sea }
+		OR = {
+			has_building = building_sensorium_1
+			has_building = building_autochthon_monument
+			has_building = building_corporate_monument
+			# has_building = building_galactic_memorial_1
+			has_building = building_simulation_1
+		}
+	}
+	immediate = {
+		hidden_effect = {
+			remove_building = building_sensorium_1
+			remove_building = building_autochthon_monument
+			remove_building = building_corporate_monument
+			# remove_building = building_galactic_memorial_1
+			remove_building = building_simulation_1
+			add_building = building_sea_sensorium_1
+		}
+	}
+}
+planet_event = {
+	id = sea_building_events.16
+	is_triggered_only = yes
+	hide_window = yes
+	trigger = {
+		owner = { has_authority = auth_sea }
+		OR = {
+			has_building = building_sensorium_2
+			has_building = building_corporate_site
+			has_building = building_heritage_site
+			# has_building = building_galactic_memorial_2
+			has_building = building_simulation_2
+		}
+	}
+	immediate = {
+		hidden_effect = {
+			remove_building = building_sensorium_2
+			remove_building = building_corporate_site
+			# remove_building = building_galactic_memorial_2
+			remove_building = building_heritage_site
+			remove_building = building_simulation_2
+			add_building = building_sea_sensorium_2
+		}
+	}
+}
+planet_event = {
+	id = sea_building_events.17
+	is_triggered_only = yes
+	hide_window = yes
+	trigger = {
+		owner = { has_authority = auth_sea }
+		OR = {
+			has_building = building_sensorium_3
+			has_building = building_corporate_forum
+			has_building = building_hypercomms_forum
+			# has_building = building_galactic_memorial_3
+			has_building = building_simulation_3
+		}
+	}
+	immediate = {
+		hidden_effect = {
+			remove_building = building_sensorium_3
+			remove_building = building_corporate_forum
+			remove_building = building_hypercomms_forum
+			# remove_building = building_galactic_memorial_3
+			remove_building = building_simulation_3
+			add_building = building_sea_sensorium_3
+		}
+	}
+}

@@ -1,0 +1,149 @@
+# 国民理念：遗嗣初生
+civic_sea = {
+	icon = "gfx/interface/icons/governments/civics/civic_sea.png"
+	modification = no
+	potential = {
+		authority = { value = auth_sea }
+	}
+	possible = {
+		origin = {
+			value = origin_sea
+		}
+	}
+	random_weight = { base = 0 }
+
+	modifier = {
+		ship_hull_mult = 0.25  # 船体值+25%
+		ship_hull_regen_add_perc = 0.3  # 每日船体再生+0.3%
+		category_biology_research_speed_mult = 0.10  # 生物学研究+10%
+	}
+}
+
+# 至高意志
+# 大群的意识没有杂音，所有个体都向着一个方向前进
+civic_sea_one_mind = {
+	icon = "gfx/interface/icons/governments/civics/civic_sea_one_mind.png"
+	potential = {
+		authority = { value = auth_sea } 
+		OR = {
+			civics = { value = civic_sea }
+			origin = { NOT = { value = origin_sea } }
+		}
+	}
+	# possible = { NOT = { has_civic = civic_sea_divided_attention }}
+	description = "civic_sea_one_mind_effects"
+	random_weight = { base = 5 }
+	modifier = {
+		country_unity_produces_mult = 0.2   # 凝聚力+20%
+		category_physics_research_speed_mult = 0.03
+		category_biology_research_speed_mult = 0.04
+		category_industry_research_speed_mult = 0.03
+	}
+}
+
+# 意志中继
+# 少量的高级子个体让意志传达的成本大大降低了
+civic_sea_divided_attention = {
+	icon = "gfx/interface/icons/governments/civics/civic_sea_divided_attention.png"
+	potential = {
+		authority = { value = auth_sea } 
+		OR = {
+			civics = { value = civic_sea }
+			origin = { NOT = { value = origin_sea } }
+		}
+	}
+	# possible = { NOT = { has_civic = civic_sea_one_mind }}
+	random_weight = { base = 5 }
+	modifier = {
+		empire_size_colonies_mult = -0.50
+	}
+}
+
+# 纪念主义
+# 在进化出发声器官后，我们学会的第一个词组是"朋友"和"礼物"
+civic_sea_memorialist = {
+	icon = "gfx/interface/icons/governments/civics/civic_sea_memorialist.png"
+	playable = { host_has_dlc = "Necroids Species Pack" }
+	description = "civic_sea_memorialist_effects"
+	potential = {
+		authority = { value = auth_sea }
+	}
+	random_weight = { base = 5 }
+	# possible = {}
+}
+
+# 大群意志
+# 我们团结在大群的指引下......
+civic_sea_subsumed_will = {
+	icon = "gfx/interface/icons/governments/civics/civic_sea_subsumed_will.png"
+	potential = {
+		authority = { value = auth_sea } 
+		OR = {
+			civics = { value = civic_sea }
+			origin = { NOT = { value = origin_sea } }
+		}
+	}
+	random_weight = { base = 5 }
+
+	modifier = {
+		empire_size_pops_mult = -0.20
+		country_edict_fund_add = 25
+	}
+}
+
+# 快速适应
+# 海嗣能够以自我想法为核心进化出所需的器官
+civic_sea_ascetic = {
+	icon = "gfx/interface/icons/governments/civics/civic_sea_ascetic.png"
+	potential = {
+		authority = { value = auth_sea } 
+		OR = {
+			civics = { value = civic_sea }
+			origin = { NOT = { value = origin_sea } }
+		}
+	}
+	random_weight = { base = 5 }
+	modifier = {
+		pop_environment_tolerance = 0.15
+		pop_amenities_usage_no_happiness_mult = -0.2
+	}
+}
+
+# 加密传感
+# 原始的信息交流方式已经过时，我们需要进化出更高效的交流方式
+civic_sea_pooled_knowledge = {
+	icon = "gfx/interface/icons/governments/civics/civic_sea_pooled_knowledge.png"
+	potential = {
+		authority = { value = auth_sea } 
+		OR = {
+			civics = { value = civic_sea }
+			origin = { NOT = { value = origin_sea } }
+		}
+	}
+	random_weight = { base = 5 }
+	modifier = {
+		leader_skill_levels = 1  # +1领袖等级上限
+		species_leader_exp_gain = 0.15  # +10%经验获取
+		intel_encryption_add = 1  # +1加密
+	}
+}
+
+# 海嗣军团
+# 大群饿了，同化，捕食。
+civic_sea_strength_of_legions = {
+	icon = "gfx/interface/icons/governments/civics/strength_of_legions.png"
+	potential = {
+		authority = { value = auth_sea } 
+		OR = {
+			civics = { value = civic_sea }
+			origin = { NOT = { value = origin_sea } }
+		}
+	}
+	random_weight = { base = 5 }
+	# description = "civic_tooltip_hive_strength_of_legions_effects"
+	modifier = {
+		army_starting_experience_add = 100
+		army_damage_mult = 0.20
+		armies_upkeep_mult = -0.20
+	}
+}

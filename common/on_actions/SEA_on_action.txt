@@ -1,0 +1,70 @@
+# on_action触发事件
+on_game_start_country = {
+	events = {
+		sea_game_start_event.0 # 欢迎
+		# sea_game_start_event.1 # 行星特征
+		sea_game_start_event.2 # 非居住站人口
+		sea_game_start_event.3 # 居住站建筑
+		sea_game_start_event.4 # 非居住站建筑
+		# sea_game_start_event.5 # 纪念主义建筑
+		sea_oracle.1
+
+	}
+}
+
+on_yearly_pulse_country = {
+	random_events = {
+		5=sea_deserter.1
+		95=0
+	}
+}
+
+on_five_year_pulse_country = {
+	random_events = {
+		20 = sea_oracle.1
+		80 = sea_oracle.9
+	}
+}
+
+# on_monthly_pulse_country = {
+# 	random_events = {
+# 		20 = sea_oracle.1
+# 		80 = sea_oracle.9
+# 	}
+# }
+
+# 殖民完成
+# Scope = Planet
+on_colonized = {
+	events = {
+		sea_building_events.1 # 首都建筑1
+	}
+}
+
+# 星球拥有者完全改变
+#FromFrom = Former Owner (if any)
+#From = Country scope (new owner)
+#This = Planet scope
+on_planet_transfer = {
+	events = {
+		sea_building_events.1 # 首都建筑1
+		sea_building_events.2 # 首都建筑2
+		sea_building_events.3 # 住宅建筑1
+		sea_building_events.4 # 住宅建筑2
+		sea_building_events.5 # 科研
+		sea_building_events.6
+		sea_building_events.7
+		sea_building_events.8 # 合金厂
+		sea_building_events.9
+		sea_building_events.10
+		sea_building_events.11
+		sea_building_events.12
+		sea_building_events.13
+		sea_building_events.14
+		sea_building_events.15
+		sea_building_events.16
+		sea_building_events.17
+	}
+}
+
+

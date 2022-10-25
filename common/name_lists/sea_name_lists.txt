@@ -1,0 +1,92 @@
+SEA01 = {
+	randomized = no
+	ship_names = {
+		generic = {  #通用		
+			SEA01_SHIPxx_ROM
+		}
+	}
+
+	fleet_names = {
+		sequential_name = SEA01_CLASSISxx_ROM
+	}
+	
+	army_names = {  #陆军部队
+	
+		defense_army = {  #防御军团
+			sequential_name = "Planetary Guard %C%"
+		}
+
+		assault_army = {  #突击军团
+			sequential_name = "Expeditionary Force %C%"
+		}
+		
+		slave_army = {  #奴隶军团
+			sequential_name = "Indentured Rifles %C%"
+		}
+		
+		clone_army = {  #克隆人军团
+			sequential_name = "Clone Army %C%"
+		}
+		
+		undead_army = {  #不死者军团
+			sequential_name = "Clone Army %C%"
+		}
+		
+		robotic_army = {  #机械军团
+			sequential_name = "Hunter-Killer Group %C%"
+		}
+
+		robotic_defense_army = {  #机械防御军团
+			sequential_name = "Ground Defense Matrix %C%"
+		}
+		
+		psionic_army = {  #灵能战士军团
+			sequential_name = "Psi Commando %C%"
+		}
+		
+		xenomorph_army = {  #异星战士军团
+			sequential_name = "Bio-Warfare Division %C%"
+		}
+		
+		gene_warrior_army = {  #基因战士军团
+			sequential_name = "Bio-Engineered Squadron %C%"
+		}
+		
+		occupation_army = {  #守备军团
+			sequential_name = "%O% Occupation Shield"
+		}
+
+		robotic_occupation_army = {  #机械守备军团
+			sequential_name = "%O% Robotic Occupiers"
+		}
+		
+		primitive_army = {  #原始时代军队
+			sequential_name = "Primitive Army %C%"
+		}
+		industrial_army = {  #工业时代军队
+			sequential_name = "Industrial Army %C%"
+		}
+		postatomic_army = {  #原子时代军队
+			sequential_name = "Post-Atomic Army %C%"
+		}
+	}
+
+	planet_names = {
+		generic = {
+			"殖民地"
+		}
+	}
+
+
+	# CHARACTERS
+
+	character_names = {
+		default = {
+			first_names = {
+				"海嗣个体"
+			}
+			second_names = {
+			}
+		}
+	}
+}

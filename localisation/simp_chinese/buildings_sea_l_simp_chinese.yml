@@ -1,0 +1,45 @@
+﻿l_simp_chinese:
+building_sea_newcenter: "初生据点"
+building_sea_newcenter_desc: "由负责殖民的海嗣个体演化成，作为利用星球的临时据点与意志传达中心。"
+
+building_sea_nervouscenter: "神经中枢"
+building_sea_nervouscenter_desc: "较为完备的链接中心，能够承担大型群体的意志传达工作"
+
+building_sea_basicnest: "基础巢穴"
+building_sea_basicnest_desc: "基础的海嗣巢穴，可供个体休息"
+
+building_sea_expandednest: "拓展巢穴"
+building_sea_expandednest_desc: "经过拓展的巢穴，大大增加了空间利用率，能同时容纳更多的个体"
+
+building_sea_guide_lab_1: "塑路者试验场"
+building_sea_guide_lab_1_desc: "它们的分形将遍历错误进化路线，如此一来便能确保大群走上正确的道路。"
+
+building_sea_guide_lab_2: "塑路者试验中心"
+building_sea_guide_lab_2_desc: "$building_sea_guide_lab_1_desc$"
+
+building_sea_guide_lab_3: "塑路者试验场域"
+building_sea_guide_lab_3_desc: "$building_sea_guide_lab_1_desc$"
+
+building_sea_foundry_1: "合金聚合体"
+building_sea_foundry_2: "高级合金聚合体"
+building_sea_foundry_3: "纳米合金聚合体"
+building_sea_foundry_4: "资源处理中心"
+
+building_sea_breeding_ground: "隐秘温床"
+building_sea_breeding_ground_desc: "无数的育母在这里繁衍子嗣壮大族群"
+
+building_sea_cultural_research_group_1: "文化研究群1"
+building_sea_cultural_research_group_1_desc: "研究艺术并返回结果供大群参考的海嗣群体"
+
+building_sea_cultural_research_group_2: "文化研究群2"
+building_sea_cultural_research_group_2_desc: "$building_sea_cultural_research_group_1_desc$"
+
+building_sea_cultural_research_group_3: "文化研究群3"
+building_sea_cultural_research_group_3_desc: "$building_sea_cultural_research_group_1_desc$"
+
+building_sea_sensorium_1: "纪念馆建筑1"
+building_sea_sensorium_2: "纪念馆建筑2"
+building_sea_sensorium_3: "纪念馆建筑3"
+
+sea_holding_organic_sanctuary: "有机庇护所"
+sea_holding_organic_sanctuary_desc: "研究非同胞群体生活的区域"

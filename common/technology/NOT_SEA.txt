@@ -1,0 +1,118 @@
+tech_cultural_heritage = {
+	cost = 0
+	area = society
+	start_tech = yes
+	category = { statecraft }
+	tier = 0
+
+	potential = {
+		OR = {
+			AND = {
+				is_hive_empire = no
+				NOT = { has_authority = auth_sea }
+			}
+			
+			is_memorialist_empire = yes
+		}
+	}
+
+	weight_modifier = {
+		modifier = {
+			factor = value:tech_weight_likelihood
+			research_leader = {
+				area = society
+				has_trait = "leader_trait_expertise_statecraft"
+			}
+		}
+	}
+
+	ai_weight = {
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = society
+				has_trait = "leader_trait_expertise_statecraft"
+			}
+		}
+	}
+}
+
+# Hive Mind
+tech_hive_node = {
+	cost = 0
+	area = society
+	start_tech = yes
+	category = { statecraft }
+	tier = 0
+
+	potential = {
+		OR = {
+			has_authority = auth_sea
+			is_hive_empire = yes
+		}
+	}
+
+	weight_modifier = {
+		modifier = {
+			factor = value:tech_weight_likelihood
+			research_leader = {
+				area = society
+				has_trait = "leader_trait_expertise_statecraft"
+			}
+		}
+	}
+
+	ai_weight = {
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = society
+				has_trait = "leader_trait_expertise_statecraft"
+			}
+		}
+	}
+}
+
+#Powered Exoskeletons
+tech_powered_exoskeletons = {
+	cost = @tier1cost1
+	area = engineering
+	tier = 1
+	category = { industry }
+	prerequisites = { "tech_basic_industry" }
+	weight = @tier1weight1
+
+	gateway = robotics
+
+	modifier = {
+		army_damage_mult = 0.05
+		planet_jobs_minerals_produces_mult = 0.05
+	}
+
+	weight_modifier = {
+		factor = 1.5
+		modifier = {
+			factor = value:tech_weight_likelihood
+			research_leader = {
+				area = engineering
+				has_trait = "leader_trait_expertise_industry"
+			}
+		}
+	}
+
+	ai_weight = {
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = engineering
+				has_trait = "leader_trait_expertise_industry"
+			}
+		}
+		modifier = {
+			factor = @robots_ai_tech_factor
+			is_spiritualist = no
+			is_hive_empire = no
+			NOT = { has_authority = auth_sea }
+		}
+	}
+}

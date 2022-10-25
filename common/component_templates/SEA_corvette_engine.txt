@@ -1,0 +1,29 @@
+# 能源
+@sea_corvette_power_1 = 70
+@sea_corvette_cost_1 = 10
+
+utility_component_template = {
+	key = "sea_CORVETTE_FISSION_REACTOR"
+	size = small
+	icon = "GFX_ship_part_reactor_1"
+	icon_frame = 1
+	power = @sea_corvette_power_1
+	resources = {
+		category = ship_components
+		cost = {
+			food = @sea_corvette_cost_1
+		}
+		upkeep = {
+			food = 0.01
+		}
+	}
+
+	prerequisites = { "tech_fission_power" }
+	component_set = "sea_power_core"
+	class_restriction = { shipclass_military }
+	size_restriction = { sea_corvette }
+
+	ai_weight = {
+		weight = 1
+	}
+}

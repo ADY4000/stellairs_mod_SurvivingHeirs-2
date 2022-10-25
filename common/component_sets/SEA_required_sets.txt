@@ -1,0 +1,44 @@
+# 能源
+component_set = {
+	key = "sea_power_core"
+
+	required_component_set = yes
+	icon = "GFX_ship_part_reactor_1"
+	icon_frame = 1
+}
+
+# 引擎
+component_set = {
+	key = "sea_ftl_components"
+
+	required_component_set = yes
+	icon = "GFX_ship_part_hyperdrive"
+	icon_frame = 1
+}
+
+# 推进器
+component_set = {
+	key = "sea_thruster_components"
+
+	required_component_set = yes
+	icon = "GFX_ship_part_thruster_1"
+	icon_frame = 1
+}
+
+# 雷达
+component_set = {
+	key = "sea_sensor_components"
+
+	required_component_set = yes
+	icon = "GFX_ship_part_sensor"
+	icon_frame = 1
+}
+
+# 电脑
+component_set = {
+	key = "sea_combat_computers"
+
+	required_component_set = yes
+	icon = "GFX_ship_part_computer"
+	icon_frame = 1
+}

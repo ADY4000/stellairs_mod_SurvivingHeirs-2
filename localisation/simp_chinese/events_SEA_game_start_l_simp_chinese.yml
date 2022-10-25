@@ -1,0 +1,7 @@
+﻿l_simp_chinese:
+sea_game_start_event.0.name: "来自守陵人渊云的说明"
+sea_game_start_event.0.desc: "您好！\n感谢您游玩该mod，请允许我在此做一点小小的说明\n§B《遗嗣初生》§是基于由鹰角网络创作的二次元塔防游戏《明日方舟》为主基调制作的MOD。确切来说，是对《群星》原版游戏的基础内容进行以《明日方舟》水月肉鸽if2&4结局线路（海嗣灭世与升入太空）为主，由mod制作者脑洞大开续写的内容扩展与调整的群星游戏扩展包。\n无论如何，感谢您的游玩！\n"
+sea_game_start_event.0.a: "确认"
+
+void_sea_dweller_system_NAME: "泰拉"
+void_sea_dweller_system_DESC: "用于海嗣起源"

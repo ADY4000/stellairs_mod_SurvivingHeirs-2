@@ -1,0 +1,8 @@
+is_memorialist_empire = {
+	OR = {
+		has_valid_civic = civic_memorialist
+		has_valid_civic = civic_hive_memorialist
+		has_valid_civic = civic_machine_memorialist
+		has_valid_civic = civic_sea_memorialist
+	}
+}

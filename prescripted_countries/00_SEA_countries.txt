@@ -1,0 +1,63 @@
+sea_country_0 = {
+	name = "EMPIRE_DESIGN_sea0"
+	adjective = "PRESCRIPTED_adjective_sea0"
+	spawn_enabled = no # yes / no / always
+	
+	species = {
+		class = "sea_C"
+		portrait = "sea_0"
+		name = "PRESCRIPTED_species_name_sea"
+		plural = "PRESCRIPTED_species_plural_sea"
+		adjective = "PRESCRIPTED_species_adjective_sea"
+		name_list = "SEA01"
+		# trait = "trait_hive_mind"
+		trait = "trait_sea"
+	}
+	# 船只名称前缀
+	ship_prefix = ""
+	
+	planet_name = "PRESCRIPTED_planet_name_sea"
+	# 不能改，不能没有，但确实是这样
+	planet_class = "pc_arctic"
+	system_name = "PRESCRIPTED_system_name_sea"
+	
+	room = "personality_hive_mind_room"
+
+	ethic = ethic_gestalt_consciousness
+	authority = "auth_sea"
+	government = gov_sea
+	initializer="void_sea_dweller_system"
+	origin = origin_sea
+	
+	# graphical_culture = "swarm_01"
+	# city_graphical_culture = "swarm_01"
+	graphical_culture = "swarm_01"
+	city_graphical_culture = "swarm_01"
+	
+	empire_flag = {
+		icon= {
+			category = "ornate"
+			file = "flag_ornate_18.dds"
+		}
+		background= {
+			category = "backgrounds"
+			file = "00_solid.dds"
+		}
+		colors={
+			"dark_grey"
+			"black"
+			"null"
+			"null"
+		}
+	}
+	
+	ruler = {
+		name = "blue_heart"
+		gender = indeterminable
+		portrait = "sea_0"
+		texture = 0
+		attachment = 1
+		clothes = 0
+		leader_class = ruler
+	}
+}

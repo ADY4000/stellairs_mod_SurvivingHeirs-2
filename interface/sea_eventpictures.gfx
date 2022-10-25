@@ -1,0 +1,26 @@
+spriteTypes = {
+	spriteType = {
+		name = "GFX_evt_sea_oracle"
+		texturefile = "gfx/event_pictures/sea_oracle.png"
+		masking_texture = "gfx/interface/situation_log/event_mask.dds" # 边框
+		alwaystransparent = yes
+	}
+	spriteType = {
+		name = "GFX_evt_sea_oracle_false"
+		texturefile = "gfx/event_pictures/sea_oracle_false.png"
+		masking_texture = "gfx/interface/situation_log/event_mask.dds" # 边框
+		alwaystransparent = yes
+	}
+	spriteType = {
+		name = "GFX_evt_sea_deserter"
+		texturefile = "gfx/event_pictures/sea_deserter.png"
+		masking_texture = "gfx/interface/situation_log/event_mask.dds" # 边框
+		alwaystransparent = yes
+	}
+	# spriteType = {
+	# 	name = "GFX_evt_sea_oracle"
+	# 	texturefile = "gfx/event_pictures/sea_oracle.png"
+	# 	masking_texture = "gfx/interface/situation_log/event_mask.dds" # 边框
+	# 	alwaystransparent = yes
+	# }
+}

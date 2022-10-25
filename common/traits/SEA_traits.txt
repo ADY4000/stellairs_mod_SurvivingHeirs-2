@@ -1,0 +1,35 @@
+# 特质
+trait_sea = {
+	cost = 0
+	potential_crossbreeding_chance = 0  # 貌似跟繁殖有关
+	sorting_priority = 20
+	initial = yes  # 初始界面被选择
+	randomized = no  # 能否随机生成
+	species_potential_add = {  # 能否添加
+		always = no
+	}
+	species_possible_remove = {  # 能否移除
+		always = no
+	}
+	species_possible_merge_add = {  # 物种融合能否移除
+		always = no
+	}
+	forced_happiness = no  # 没有幸福度
+	immortal_leaders = yes  # 领袖永生
+
+	allowed_archetypes = { BIOLOGICAL }  # 生物大类
+	ai_weight = {
+		weight = 0
+	}
+
+	icon = "gfx/interface/icons/traits/trait_sea.png"
+
+	custom_tooltip = trait_sea_effect  # 效果描述
+	modifier = {
+		pop_growth_speed = 0.25  # 自然增长
+		pop_assembly_speed = 0.25  # 组装
+		pop_environment_tolerance = 0.4  # 普遍环境适应性
+		# pc_habitat_habitability = -1.2 # 太空适应性
+		army_damage_mult = 0.3  # 陆军伤害+50%
+	}
+}

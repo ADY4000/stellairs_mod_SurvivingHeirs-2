@@ -1,0 +1,20 @@
+cb_sea_total_war = {
+	show_in_diplomacy = no
+	show_notification = no
+	potential = {
+		is_country_type = default
+		has_valid_civic = civic_sea
+		NOT = { is_in_federation_with = from }
+	}
+	is_valid = {
+		OR = {
+			has_total_war_cb = yes
+			has_total_war_cb = no
+		}
+		NOT = { is_overlord_to = FROM }
+		OR = {
+			is_subject = no
+			overlord = { NOT = { is_same_value = from } }
+		}
+	}
+}

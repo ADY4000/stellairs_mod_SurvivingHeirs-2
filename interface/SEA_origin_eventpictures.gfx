@@ -1,0 +1,7 @@
+spriteTypes = {
+	spriteType = {
+		name = "GFX_origin_sea"
+		texturefile = "gfx/event_pictures/origins/origin_sea.png"
+		alwaystransparent = yes
+	}
+}

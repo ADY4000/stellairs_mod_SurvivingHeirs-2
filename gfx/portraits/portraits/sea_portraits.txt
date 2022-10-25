@@ -1,0 +1,133 @@
+portraits = {
+    # qaz1 = { texturefile = "gfx/models/portraits/Alty1.dds" }
+    sea_dsurch = { texturefile = "gfx/models/portraits/SEA.C/sea_dsurch.png" } # 囊海爬行者
+    sea_syzeni = { texturefile = "gfx/models/portraits/SEA.C/sea_syzeni.png" } # 固海凿石者
+    sea_dsshtr = { texturefile = "gfx/models/portraits/SEA.C/sea_dsshtr.png" } # 深溟喷溅者
+    sea_dsubrl = { texturefile = "gfx/models/portraits/SEA.C/sea_dsubrl.png" } # 深溟巢涌者
+    sea_dsbudr = { texturefile = "gfx/models/portraits/SEA.C/sea_dsbudr.png" } # 深溟奠基者
+    sea_syufo = { texturefile = "gfx/models/portraits/SEA.C/sea_syufo.png" } # 掠海漂移体
+    sea_dslntc = { texturefile = "gfx/models/portraits/SEA.C/sea_dslntc.png" } # 钵海收割者
+    sea_dsexcu = { texturefile = "gfx/models/portraits/SEA.C/sea_dsexcu.png" } # 始海穿刺者
+    sea_sypult = { texturefile = "gfx/models/portraits/SEA.C/sea_sypult.png" } # 投嗣育母
+    sea_syfish = { texturefile = "gfx/models/portraits/SEA.C/sea_syfish.png" } # 骨海漂流体
+    sea_dsjely = { texturefile = "gfx/models/portraits/SEA.C/sea_dsjely.png" } # 浮海飘航者
+    sea_dsbow = { texturefile = "gfx/models/portraits/SEA.C/sea_dsbow.png" } # 脊海喷吐者
+    sea_dsrunr = { texturefile = "gfx/models/portraits/SEA.C/sea_dsrunr.png" } # 深溟猎食者
+}
+
+portrait_groups = {
+    sea_0 = {
+		default = sea_dsexcu  # 默认
+        game_setup = {
+            add = {
+                trigger = {
+                    ruler = { gender = indeterminable }
+                }
+                portraits = {
+                    sea_dsurch # 囊海爬行者
+                    sea_syzeni # 固海凿石者
+                    sea_dsshtr # 深溟喷溅者
+                    sea_dsubrl # 深溟巢涌者
+                    sea_dsbudr # 深溟奠基者
+                    sea_syufo # 掠海漂移体
+                    sea_dslntc # 钵海收割者
+                    sea_dsexcu # 始海穿刺者
+                    sea_sypult # 投嗣育母
+                    sea_syfish # 骨海漂流体
+                    sea_dsjely # 浮海飘航者
+                    sea_dsbow # 脊海喷吐者
+                    sea_dsrunr # 深溟猎食者
+                }
+            }
+        }
+        # species scope
+		species = { # generic portrait for a species
+			add = {
+				portraits = {
+                    sea_dsurch # 囊海爬行者
+                    sea_syzeni # 固海凿石者
+                    sea_dsshtr # 深溟喷溅者
+                    sea_dsubrl # 深溟巢涌者
+                    sea_dsbudr # 深溟奠基者
+                    sea_syufo # 掠海漂移体
+                    sea_dslntc # 钵海收割者
+                    sea_dsexcu # 始海穿刺者
+                    sea_sypult # 投嗣育母
+                    sea_syfish # 骨海漂流体
+                    sea_dsjely # 浮海飘航者
+                    sea_dsbow # 脊海喷吐者
+                    sea_dsrunr # 深溟猎食者
+    			}
+			}
+		}
+		
+        # pop scope
+		pop = { # generic portrait for a species
+			add = {
+				portraits = {
+                    sea_dsurch # 囊海爬行者
+                    sea_syzeni # 固海凿石者
+                    sea_dsshtr # 深溟喷溅者
+                    sea_dsubrl # 深溟巢涌者
+                    sea_dsbudr # 深溟奠基者
+                    sea_syufo # 掠海漂移体
+                    sea_dslntc # 钵海收割者
+                    sea_dsexcu # 始海穿刺者
+                    sea_sypult # 投嗣育母
+                    sea_syfish # 骨海漂流体
+                    sea_dsjely # 浮海飘航者
+                    sea_dsbow # 脊海喷吐者
+                    sea_dsrunr # 深溟猎食者
+    			}
+			}
+		}
+		
+        # leader scope
+		leader = { # scientists, generals, admirals, governor
+			add = {
+                trigger = {
+                    gender = indeterminable
+                }
+				portraits = {
+                    sea_dsurch # 囊海爬行者
+                    sea_syzeni # 固海凿石者
+                    sea_dsshtr # 深溟喷溅者
+                    sea_dsubrl # 深溟巢涌者
+                    sea_dsbudr # 深溟奠基者
+                    sea_syufo # 掠海漂移体
+                    sea_dslntc # 钵海收割者
+                    sea_dsexcu # 始海穿刺者
+                    sea_sypult # 投嗣育母
+                    sea_syfish # 骨海漂流体
+                    sea_dsjely # 浮海飘航者
+                    sea_dsbow # 脊海喷吐者
+                    sea_dsrunr # 深溟猎食者
+				}
+			}
+		}	
+		
+        # leader scope 
+		ruler = {
+			add = {
+                trigger = {
+                    gender = indeterminable
+                }
+				portraits = {
+                    sea_dsurch # 囊海爬行者
+                    sea_syzeni # 固海凿石者
+                    sea_dsshtr # 深溟喷溅者
+                    sea_dsubrl # 深溟巢涌者
+                    sea_dsbudr # 深溟奠基者
+                    sea_syufo # 掠海漂移体
+                    sea_dslntc # 钵海收割者
+                    sea_dsexcu # 始海穿刺者
+                    sea_sypult # 投嗣育母
+                    sea_syfish # 骨海漂流体
+                    sea_dsjely # 浮海飘航者
+                    sea_dsbow # 脊海喷吐者
+                    sea_dsrunr # 深溟猎食者
+				}
+			}
+		}
+    }
+}

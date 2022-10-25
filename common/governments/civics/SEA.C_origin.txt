@@ -1,0 +1,37 @@
+# 起源：海嗣
+origin_sea = {
+	is_origin = yes  # 是否为起源
+	icon = "gfx/interface/icons/governments/origins/origins_sea.png"
+	picture = GFX_origin_sea
+
+	starting_colony = pc_habitat
+	initializers = { void_sea_dweller_system }
+	habitability_preference = pc_habitat
+	max_once_global = yes
+	preferred_planet_class_neighbor = no
+
+	playable = {
+		host_has_dlc = Federations
+	}
+
+	potential = {
+		always = yes
+	}
+
+	possible = {  # 可用条件
+		authority = { value = auth_sea }
+		# civics = { value = civic_sea  }  # 国民理念：海嗣
+		species_archetype = {
+			value = BIOLOGICAL
+		}
+	}
+	traits = {
+		trait = trait_sea
+	}
+	random_weight = {  # ai起源权重
+		base = 0
+	}
+	description = "origin_sea_effects_desc"
+	flags = { custom_start_screen }
+}
+

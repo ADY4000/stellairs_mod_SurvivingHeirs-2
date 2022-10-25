@@ -1,0 +1,10 @@
+sea_C = {
+	sea_0 = {
+		language = "l_simp_chinese"
+		name = "海嗣"
+		plural = "海嗣们"
+		home_planet = "泰拉"
+		home_system = "巴比妥"
+		name_list = "HUM4"
+	}
+}

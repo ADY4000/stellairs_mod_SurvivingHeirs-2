@@ -1,0 +1,381 @@
+# 固定触发的文本，用于经常被引用的文本生成
+# 估计是用于各种事件
+# Worker / Simple Drone
+defined_text = {
+	name = GetWorker
+	text = {
+		trigger = {
+			is_scope_valid = yes
+			is_regular_empire = yes
+		}
+		# 劳工
+		localization_key = pop_cat_worker
+	}
+	text = {
+		trigger = {
+			is_scope_valid = yes
+			is_gestalt = yes
+			NOT = { has_authority = auth_sea }
+		}
+		# 低级子个体
+		localization_key = pop_cat_simple_drone
+	}
+	text = {
+		trigger = {
+			is_scope_valid = yes
+			is_gestalt = yes
+			has_authority = auth_sea
+		}
+		# 低级子个体
+		localization_key = pop_sea_lowerfish
+	}
+	default = pop_cat_worker
+}
+
+# Specialist / Complex Drone
+# 复合子个体
+defined_text = {
+	name = GetSpecialist
+	text = {
+		trigger = {
+			is_scope_valid = yes
+			is_regular_empire = yes
+		}
+		localization_key = pop_cat_specialist
+	}
+	text = {
+		trigger = {
+			is_scope_valid = yes
+			is_gestalt = yes
+			NOT = { has_authority = auth_sea }
+		}
+		localization_key = pop_cat_complex_drone
+	}
+	text = {
+		trigger = {
+			is_scope_valid = yes
+			is_gestalt = yes
+			has_authority = auth_sea
+		}
+		# 低级子个体
+		localization_key = pop_sea_higherfish
+	}
+	default = pop_cat_specialist
+}
+# 子个体
+defined_text = {
+	name = GetTeamMember
+	text = {
+		trigger = {
+			has_authority = auth_machine_intelligence
+		}
+		localization_key = unit_key
+	}
+	text = {
+		trigger = {
+			has_authority = auth_hive_mind
+		}
+		localization_key = drone_key
+	}
+	text = {
+		trigger = {
+			has_authority = auth_sea
+		}
+		localization_key = pop_sea
+	}
+	text = {
+		trigger = {
+			NOT = { has_ethic = ethic_gestalt_consciousness }
+		}
+		localization_key = team_member_key
+	}
+}
+# 科学家
+defined_text = {
+	name = GetScientist
+	text = {
+		trigger = {
+			has_authority = auth_machine_intelligence
+		}
+		localization_key = getscientist_machine
+	}
+	text = {
+		trigger = {
+			has_authority = auth_hive_mind
+		}
+		localization_key = getscientist_hive
+	}
+	text = {
+		trigger = {
+			has_authority = auth_sea
+		}
+		localization_key = job_sea_guide
+	}
+	text = {
+		trigger = {
+			NOT = { has_ethic = ethic_gestalt_consciousness }
+		}
+		localization_key = getscientist_normal
+	}
+}
+defined_text = {
+	name = GetScientistPlural
+	text = {
+		trigger = {
+			has_authority = auth_machine_intelligence
+		}
+		localization_key = getscientistplural_machine
+	}
+	text = {
+		trigger = {
+			has_authority = auth_hive_mind
+		}
+		localization_key = getscientistplural_hive
+	}
+	text = {
+		trigger = {
+			has_authority = auth_hive_mind
+		}
+		localization_key = getscientist_hive
+	}
+	text = {
+		trigger = {
+			NOT = { has_ethic = ethic_gestalt_consciousness }
+		}
+		localization_key = getscientistplural_normal
+	}
+}
+# Engineer
+defined_text = {
+	name = GetEngineer
+	text = {
+		trigger = {
+			has_authority = auth_machine_intelligence
+		}
+		localization_key = getengineer_machine
+	}
+	text = {
+		trigger = {
+			has_authority = auth_hive_mind
+		}
+		localization_key = getengineer_hive
+	}
+	text = {
+		trigger = {
+			has_authority = auth_sea
+		}
+		localization_key = job_sea_dsubrl
+	}
+	text = {
+		trigger = {
+			NOT = { has_ethic = ethic_gestalt_consciousness }
+		}
+		localization_key = getengineer_normal
+	}
+}
+defined_text = {
+	name = GetEngineerPlural
+	text = {
+		trigger = {
+			has_authority = auth_machine_intelligence
+		}
+		localization_key = getengineerplural_machine
+	}
+	text = {
+		trigger = {
+			has_authority = auth_hive_mind
+		}
+		localization_key = getengineerplural_hive
+	}
+	text = {
+		trigger = {
+			has_authority = auth_sea
+		}
+		localization_key = job_sea_dsubrl
+	}
+	text = {
+		trigger = {
+			NOT = { has_ethic = ethic_gestalt_consciousness }
+		}
+		localization_key = getengineerplural_normal
+	}
+}
+# Envoy
+# Example: Our diplomatic unit/diplomatic drone/envoy has found a...
+defined_text = {
+	name = GetEnvoy
+	text = {
+		trigger = {
+			has_authority = auth_machine_intelligence
+		}
+		localization_key = getenvoy_machine
+	}
+	text = {
+		trigger = {
+			has_authority = auth_hive_mind
+		}
+		localization_key = getenvoy_hive
+	}
+	text = {
+		trigger = {
+			has_authority = auth_sea
+		}
+		localization_key = job_sea_dsmant
+	}
+	text = {
+		trigger = {
+			NOT = { has_ethic = ethic_gestalt_consciousness }
+		}
+		localization_key = getenvoy_normal
+	}
+}
+
+# Envoy
+# Example: Our diplomatic unit/diplomatic drone/envoy has found a...
+defined_text = {
+	name = GetEnvoyCap
+	text = {
+		trigger = {
+			has_authority = auth_machine_intelligence
+		}
+		localization_key = getenvoycap_machine
+	}
+	text = {
+		trigger = {
+			has_authority = auth_hive_mind
+		}
+		localization_key = getenvoycap_hive
+	}
+	text = {
+		trigger = {
+			has_authority = auth_sea
+		}
+		localization_key = job_sea_dsmant
+	}
+	text = {
+		trigger = {
+			NOT = { has_ethic = ethic_gestalt_consciousness }
+		}
+		localization_key = getenvoycap_normal
+	}
+}
+
+# Envoys
+# Example: Our diplomatic units/diplomatic drones/envoys have reported that...
+defined_text = {
+	name = GetEnvoyPlural
+	text = {
+		trigger = {
+			has_authority = auth_machine_intelligence
+		}
+		localization_key = getenvoyplural_machine
+	}
+	text = {
+		trigger = {
+			has_authority = auth_hive_mind
+		}
+		localization_key = getenvoyplural_hive
+	}
+	text = {
+		trigger = {
+			has_authority = auth_sea
+		}
+		localization_key = job_sea_dsmant
+	}
+	text = {
+		trigger = {
+			NOT = { has_ethic = ethic_gestalt_consciousness }
+		}
+		localization_key = getenvoyplural_normal
+	}
+}
+
+defined_text = {
+	name = GetLinguists
+	text = {
+		trigger = {
+			has_authority = auth_machine_intelligence
+		}
+		localization_key = getlinguists_machine
+	}
+	text = {
+		trigger = {
+			has_authority = auth_hive_mind
+		}
+		localization_key = getlinguists_hive
+	}
+	text = {
+		trigger = {
+			has_authority = auth_sea
+		}
+		localization_key = job_sea_dsmant
+	}
+	text = {
+		trigger = {
+			NOT = { has_ethic = ethic_gestalt_consciousness }
+		}
+		localization_key = getlinguists_normal
+	}
+}
+
+# Example: Our researchers/research drones/research subroutines...
+defined_text = {
+	name = GetResearchers
+	text = {
+		trigger = {
+			OR = {
+				AND = {
+					is_scope_type = agreement
+					exists = owner
+					owner = { has_authority = auth_machine_intelligence }
+				}
+				AND = {
+					is_scope_type = country
+					has_authority = auth_machine_intelligence
+				}
+			}
+		}
+		localization_key = getresearchers_machine
+	}
+	text = {
+		trigger = {
+			OR = {
+				AND = {
+					is_scope_type = agreement
+					exists = owner
+					owner = { has_authority = auth_hive_mind }
+				}
+				AND = {
+					is_scope_type = country
+					has_authority = auth_hive_mind
+				}
+			}
+		}
+		localization_key = getresearchers_hive
+	}
+	text = {
+		trigger = {
+			OR = {
+				exists = owner
+				owner = { has_authority = auth_sea }
+				}
+			}
+		localization_key = job_sea_guide
+	}
+	text = {
+		trigger = {
+			OR = {
+				AND = {
+					is_scope_type = agreement
+					exists = owner
+					owner = { NOT = { has_ethic = ethic_gestalt_consciousness } }
+				}
+				AND = {
+					is_scope_type = country
+					NOT = { has_ethic = ethic_gestalt_consciousness }
+				}
+			}
+		}
+		localization_key = getresearchers_normal
+	}
+}

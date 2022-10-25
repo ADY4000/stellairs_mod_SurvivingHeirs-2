@@ -1,0 +1,181 @@
+namespace = sea_game_start_event
+# 纷杂的意识
+# 这个其实适合做一个偏执度系统（没错就是大林子），集合度高给军队，科研，基建，凝聚力buff，集合度低各种叛乱与不好的事件
+# 然后集合度修改方式：
+# 基础：帝国规模反比
+# +：事件与法令（有debuff）（怎么感觉这么像大清洗）
+# -：事件，危机
+# 有天灾时恒定100
+# 这东西放v2.0吧
+
+# 专属飞升，加集合度等
+# 专属巨像部件，抄天洪浩荡
+# 建筑与各种触发器
+
+# 欢迎
+country_event = {
+	id = sea_game_start_event.0
+	title = sea_game_start_event.0.name
+	desc = sea_game_start_event.0.desc
+	is_triggered_only = yes
+	trigger = {
+		has_origin = origin_sea
+	}
+	option = {
+		name = sea_game_start_event.0.a
+	}
+}
+
+# # 移除自带的神秘复制器，变为自己的.
+# country_event = {
+# 	id = sea_game_start_event.1
+# 	is_triggered_only = yes
+# 	hide_window = yes
+# 	trigger = {
+# 		has_origin = origin_sea
+# 	}
+# 	immediate = {
+# 		home_planet = {
+# 			hidden_effect = {
+# 				remove_deposit = d_arcane_replicator
+# 			}
+# 			add_deposit = sea_matrix
+# 		}
+# 	}
+# }
+
+# 非遗嗣起源人口问题
+country_event = {
+	id = sea_game_start_event.2
+	is_triggered_only = yes
+	hide_window = yes
+	trigger = {
+		has_authority = auth_sea
+		NOT = { has_origin = origin_sea }
+		home_planet = {
+			num_pops < 32
+		}
+	}
+	immediate = {
+		home_planet = {
+			while = {
+				limit = {
+					num_pops < 32
+				}
+				create_pop = {
+					species = owner_main_species
+				}
+			}
+		}
+	}
+}
+
+# 建筑问题
+# 站开
+country_event = {
+	id = sea_game_start_event.3
+	is_triggered_only = yes
+	hide_window = yes
+	trigger = {
+		has_authority = auth_sea
+		has_origin = origin_sea
+	}
+	immediate = {
+		owner = {
+			give_technology = {
+				tech = tech_habitat_1
+				message = no
+			}
+			add_research_option = tech_habitat_2
+		}
+		home_planet= {
+			# set_capital = yes
+			# set_owner = event_target:void_dweller_owner
+			while = {
+				count = 10
+				create_pop = {
+					species = owner_main_species
+				}
+			}
+			set_planet_entity = {
+				entity = "habitat_phase_01_entity"
+				graphical_culture = event_target:void_dweller_owner
+			}
+			set_planet_size = 9
+			add_district_and_planet_size_if_needed_effect = {
+				district = district_hab_housing
+			}
+			add_district_and_planet_size_if_needed_effect = {
+				district = district_hab_industrial
+			}
+			add_district_and_planet_size_if_needed_effect = {
+				district = district_hab_industrial
+			}
+			# 特征
+			while = {
+				count = 3
+				random_deposit = {
+					limit = { #none
+					}
+					remove_deposit = yes
+				}
+			}
+			add_deposit = sea_matrix
+			# 建筑
+			add_building = building_hab_capital
+			add_building = building_sea_guide_lab_1
+		}
+	}
+}
+
+# 非站开
+country_event = {
+	id = sea_game_start_event.4
+	is_triggered_only = yes
+	hide_window = yes
+	trigger = {
+		has_authority = auth_sea
+		NOT = { has_origin = origin_sea }
+	}
+	immediate = {
+		home_planet = {
+			hidden_effect = {
+				remove_all_buildings = yes
+			}
+			add_building = building_sea_newcenter
+			add_building = building_sea_guide_lab_1
+		}
+	}
+}
+
+country_event = {
+	id = sea_game_start_event.5
+	is_triggered_only = yes
+	hide_window = yes
+	trigger = {
+		has_authority = auth_sea
+		is_memorialist_empire = yes
+	}
+	immediate = {
+		home_planet = {
+			hidden_effect = {
+				remove_building = building_sea_sensorium_1
+			}
+			add_building = building_galactic_memorial_1
+		}
+	}
+}
+
+# country_event = {
+# 	id = sea_game_start_event.5
+# 	is_triggered_only = yes
+# 	hide_window = yes
+# 	trigger = {
+# 		has_authority = auth_sea
+# 	}
+# 	immediate = {
+# 		set_country_flag = sea_country_1
+# 	}
+# }
+
+

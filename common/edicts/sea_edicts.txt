@@ -1,0 +1,77 @@
+# 营养充足
+nutritional_plenitude_hive = {
+	length = @EdictPerpetual
+	icon = "GFX_edict_type_policy"
+
+	resources = {
+		category = edicts
+		upkeep = {
+			unity = @Edict1Cost
+			multiplier = value:edict_size_effect
+		}
+	}
+
+	modifier = {
+		pop_growth_speed = 0.10
+		planet_pops_organics_food_upkeep_mult = 0.25
+		planet_pops_organics_minerals_upkeep_mult = 0.25
+	}
+
+	potential = {
+		OR = {
+			has_authority = auth_sea
+			is_hive_empire = yes
+		}
+	}
+
+	prerequisites = {
+		"tech_gene_crops"
+	}
+
+	show_tech_unlock_if = {
+		OR = {
+			has_authority = auth_sea
+			is_hive_empire = yes
+		}
+	}
+
+	ai_weight = {
+		weight = @EdictHighPrio
+	}
+}
+# 子个体超负载
+drone_overdrive = {
+	length = @EdictPerpetual
+	icon = "GFX_edict_type_policy"
+
+	resources = {
+		category = edicts
+		upkeep = {
+			unity = @Edict1Cost
+			multiplier = value:edict_size_effect
+		}
+	}
+
+	modifier = {
+		planet_jobs_simple_drone_produces_mult = 0.10
+		pop_amenities_usage_no_happiness_mult = 0.10
+	}
+
+	potential = {
+		is_gestalt = yes
+		NOT = { has_authority = auth_sea }
+		has_active_tradition = tr_domination_drone_network
+	}
+
+	ai_weight = {
+		weight = @EdictHighPrio
+		modifier = {
+			factor = 1.5
+			has_ethic = ethic_authoritarian
+		}
+		modifier = {
+			factor = 2
+			has_ethic = ethic_fanatic_authoritarian
+		}
+	}
+}
